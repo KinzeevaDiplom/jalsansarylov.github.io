@@ -6,7 +6,12 @@
   outline: none;
 }
 
+body {
+  height: 100%;
+}
+
 html {
+  height: 100%;
   font-family: "PT Serif", serif;
   font-size: 14px;
 }

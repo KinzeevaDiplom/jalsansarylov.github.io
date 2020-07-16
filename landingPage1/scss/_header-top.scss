@@ -5,6 +5,7 @@
   .header-top-contact {
     background: #303030;
     display: flex;
+    transition: margin-top 0.3s;
     .contact__item {
       font-family: "Roboto", sans-serif;
       color: white;
@@ -39,6 +40,7 @@
 
   &__bottom {
     background-color: #fff;
+    box-shadow: 0rem 0.5rem 10px rgba(0, 0, 0, 0.274);
   }
 
   .top__wrapper {
@@ -80,6 +82,10 @@
       border: 2px solid #ffc222;
     }
   }
+}
+
+.decrease .logo {
+  padding: 2rem 0rem;
 }
 
 .gmr-btn {
