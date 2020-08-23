@@ -8,6 +8,9 @@
 html {
   font-family: "Fira Sans", sans-serif;
   font-size: 18px;
+  text-transform: uppercase;
+  color: white;
+  background-color: #171919;
 }
 
 .header {
@@ -27,7 +30,6 @@ html {
   right: 4.444rem;
   bottom: 6.39rem;
   text-align: right;
-  color: white;
 }
 
 .slick-track {
@@ -57,8 +59,11 @@ html {
   right: 4.444rem;
   bottom: 1.78rem;
   z-index: 1001;
-  color: white;
   margin-right: -1.466rem;
+}
+
+.header-dots .dots-box__text {
+  text-transform: capitalize;
 }
 
 .header-dots .slick-current .dots-box {
@@ -95,8 +100,6 @@ html {
   font-size: 11.111rem;
   line-height: 0.79em;
   max-width: 27rem;
-  text-transform: uppercase;
-  color: #ffffff;
   opacity: 0.07;
 }
 
@@ -140,10 +143,6 @@ html {
   margin-bottom: 1.5rem;
 }
 
-.header__aside .aside-info {
-  color: white;
-}
-
 .header__aside .aside-info__date {
   margin-top: 1rem;
 }
@@ -151,7 +150,6 @@ html {
 .header__aside .aside-info__big {
   font-weight: 800;
   font-size: 4rem;
-  text-transform: uppercase;
 }
 
 .header__aside .aside-info__little {
@@ -165,6 +163,10 @@ html {
   font-size: 0.666rem;
   letter-spacing: 1.05px;
   margin: 1.5rem 0rem;
+}
+
+.header__aside .aside-info__adress {
+  text-transform: none;
 }
 
 .header__arrow {
@@ -250,6 +252,11 @@ html {
 .slider-item__info__text {
   padding: 0.8rem 0rem;
   font-size: 2.222rem;
+  margin-right: 0.5rem;
+}
+
+.slider-item__info__text span {
+  font-weight: 200;
 }
 
 .subtitle-right {
@@ -271,4 +278,143 @@ html {
   position: absolute;
   top: 2.222rem;
   right: 4.444rem;
+}
+
+.section__title {
+  font-weight: 800;
+  font-size: 4.444rem;
+  position: relative;
+  left: 13.61rem;
+  display: inline-block;
+}
+
+.section__title::after {
+  content: "";
+  position: absolute;
+  width: 4.444rem;
+  height: 1px;
+  background-color: #4af6cd;
+  right: 0%;
+}
+
+.section__title span {
+  font-weight: 800;
+  font-size: 11.1111rem;
+  position: absolute;
+  opacity: 0.02;
+  left: -155%;
+}
+
+.section__info {
+  position: absolute;
+  right: 4.444rem;
+  display: inline-block;
+  text-align: right;
+}
+
+.btn {
+  font-weight: 800;
+  font-size: 2.222rem;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding: 0.9rem 0.7rem;
+}
+
+.btn span {
+  background-color: #4af6cd;
+  padding: 0.9rem 4rem 0.7rem 0.8rem;
+  position: relative;
+}
+
+.btn span::after {
+  content: "";
+  background: url(../img/header-array.svg) no-repeat;
+  width: 1.333rem;
+  height: 1.111rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 50%;
+  margin-bottom: -0.555rem;
+}
+
+.surf {
+  position: relative;
+  background: url(../img/surf-bg.png) right 12.44rem no-repeat;
+}
+
+.surf .section__info {
+  margin-top: 17.277rem;
+}
+
+.surf .section__title {
+  margin-top: 8.722rem;
+}
+
+.surf-slider {
+  margin-top: 800px;
+}
+
+.surf-slider .slick-arrow {
+  top: 55.222rem;
+  opacity: 0.25;
+}
+
+.surf .surf__item {
+  min-height: 41.66rem;
+}
+
+.surf .surf__item__over {
+  background-color: #1c2121b6;
+  height: 100%;
+  position: relative;
+  padding: 75px 0px 0px 45px;
+  transition: all 0.6s;
+}
+
+.surf .surf__item__over .surf__name-beach {
+  font-weight: 800;
+  font-size: 2.222rem;
+  max-width: 9.4rem;
+}
+
+.surf .surf__item__over .surf__name-place {
+  letter-spacing: 8px;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  width: 0;
+  position: absolute;
+  left: 45px;
+  bottom: 80px;
+  height: 0;
+}
+
+.surf .surf__item__over .surf__name-place span {
+  font-weight: 200;
+  opacity: 0.85;
+}
+
+.surf .surf__item__over .btn__wrap {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  margin-left: -45px;
+  display: none;
+}
+
+.surf .surf__item:hover .btn__wrap {
+  display: block;
+}
+
+.surf .surf__item:hover .surf__item__over {
+  background-color: #1c21214d;
+}
+
+.surf .slick-current .surf__item__over {
+  background-color: #1c21214d;
+}
+
+.surf .slick-current .btn__wrap {
+  display: block;
 }

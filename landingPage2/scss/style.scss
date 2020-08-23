@@ -11,6 +11,9 @@ $fsizeMain: 18px;
 html {
   font-family: "Fira Sans", sans-serif;
   font-size: $fsizeMain;
+  text-transform: uppercase;
+  color: white;
+  background-color: #171919;
 }
 // .container {
 //   max-width: $whContainer;
@@ -22,3 +25,4 @@ html {
 //import
 @import "_header.scss";
 @import "_global.scss";
+@import "_surf.scss";
