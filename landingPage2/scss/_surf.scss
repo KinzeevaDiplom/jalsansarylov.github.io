@@ -15,7 +15,7 @@
     }
   }
   .surf__item {
-    min-height: 41.66rem;
+    height: 41.66rem;
     &__over {
       background-color: #1c2121b6;
       height: 100%;
@@ -67,4 +67,10 @@
       display: block;
     }
   }
+}
+.surf-item:nth-child(1) {
+  margin-top: 2rem;
+}
+.slide3 {
+  margin-top: 5rem;
 }
