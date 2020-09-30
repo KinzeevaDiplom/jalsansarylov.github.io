@@ -106,6 +106,16 @@ footer .container { display: flex; justify-content: space-between; color: white;
 
 footer a { color: #dda325; }
 
+.btn-up { position: fixed; border-radius: 100%; border: 2px solid #004697; opacity: 0.5; z-index: 101; bottom: 5rem; right: 7rem; width: 4rem; height: 4rem; transition: opacity 0.3s; }
+
+.btn-up img { width: 100%; padding: 0.5rem; animation: arrowUp 1s infinite linear; }
+
+.btn-up:hover { opacity: 1; }
+
+@keyframes arrowUp { 25% { transform: translate(0px, -5px); }
+  50% { transform: translate(0px, -5px); }
+  100% { transform: translate(0px, 0px); } }
+
 @media (max-width: 1000px) { html { font-size: 14px; } }
 
 @media (max-width: 850px) { html { font-size: 13px; }
