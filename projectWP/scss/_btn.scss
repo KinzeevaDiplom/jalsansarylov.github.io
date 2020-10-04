@@ -2,10 +2,10 @@
   position: fixed;
   border-radius: 100%;
   border: 2px solid $extraColor;
-  opacity: 0.5;
+  opacity: 0;
   z-index: 101;
   bottom: 5rem;
-  right: 7rem;
+  right: 5%;
   width: 4rem;
   height: 4rem;
   transition: opacity 0.3s;
@@ -16,6 +16,9 @@
   }
   &:hover {
     opacity: 1;
+  }
+  &--active {
+    opacity: 0.5;
   }
 }
 

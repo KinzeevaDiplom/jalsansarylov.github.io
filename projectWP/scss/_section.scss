@@ -11,21 +11,27 @@ section {
     max-width: 500px;
     padding: 1rem;
   }
+  & ul {
+    margin-left: 1rem;
+  }
+  & li {
+    margin-top: 1rem;
+  }
 }
 
 .section-title {
-  margin-top: -5rem;
-  padding: 9rem 0rem 4rem;
+  // margin-top: -5rem;
+  padding: 4rem 0rem 4rem;
   text-align: center;
   position: relative;
   &::after {
     content: "";
     width: 4rem;
-    height: 3px;
+    height: 2px;
     background-color: $extraColor;
     position: absolute;
     left: 50%;
-    top: 65%;
+    top: 50%;
     margin-left: -2rem;
   }
 }
@@ -52,4 +58,16 @@ section {
       top: 0%;
     }
   }
+  &__hint {
+    & p {
+      &::before {
+        background-color: $extraColor2;
+      }
+    }
+  }
+}
+
+.about-lessons {
+  margin-top: 5rem;
+  // min-height: 80vh;
 }

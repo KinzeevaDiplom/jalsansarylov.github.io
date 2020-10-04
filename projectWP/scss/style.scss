@@ -24,7 +24,7 @@ html {
 
 body {
   background-color: $mainColor;
-  min-height: 110vh;
+  // min-height: 110vh;
 }
 
 .container {
@@ -48,5 +48,6 @@ body {
 @import "_section.scss";
 @import "_footer.scss";
 @import "_btn.scss";
+@import "_content.scss";
 
 @import "_media.scss";

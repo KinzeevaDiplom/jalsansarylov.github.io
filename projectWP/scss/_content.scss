@@ -1,0 +1,32 @@
+.content-wrapper {
+  padding-top: 8rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content {
+  padding-right: 2rem;
+  min-height: 100vh;
+  width: 77%;
+  border-right: 1px dotted $extraColor;
+  & .section-title {
+    text-align: left;
+    &::after {
+      content: "";
+      left: 2.4rem;
+      top: 50%;
+    }
+  }
+  & .section__subtitle {
+    text-align: left;
+    margin-left: 0.4rem;
+  }
+}
+
+.sidebar {
+  width: 20%;
+  align-self: flex-start;
+  position: sticky;
+  top: 5rem;
+}
