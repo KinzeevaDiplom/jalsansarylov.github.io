@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+html {
+  color: $mainColor;
+  font-family: $ffamilyMain;
+  font-size: $fsizeMain;
+  background-color: $bgMain;
+}
+
+.container {
+  max-width: $whContainer;
+  margin: 0 auto;
+  padding: 0rem 1rem;
+}
+
+.wraper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-panel {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background-color: $bgTopPanel;
+  & p {
+    padding: 0.7rem 0px;
+    font-size: 14px;
+    margin-left: 500px;
+  }
+
+  & span {
+    color: $extraColor;
+  }
+}
+
+.btn {
+  & path {
+    fill: $mainColor;
+  }
+}

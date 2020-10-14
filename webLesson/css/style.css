@@ -1,0 +1,54 @@
+* { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+
+html { color: var(--mainColor); font-family: Roboto, Areal; font-size: 16px; background-color: var(--bgMain); }
+
+.container { max-width: var(--whContainer); margin: 0 auto; padding: 0rem 1rem; }
+
+.wraper { display: flex; justify-content: space-between; }
+
+.top-panel { position: fixed; width: 100%; z-index: 100; background-color: var(--bgTopPanel); }
+
+.top-panel p { padding: 0.7rem 0px; font-size: 14px; margin-left: 500px; }
+
+.top-panel span { color: var(--extraColor); }
+
+.btn path { fill: var(--mainColor); }
+
+.menu { display: flex; z-index: 200; background-color: var(--bgMenu); }
+
+.menu .theme { width: 78px; height: 100%; background-color: #202225; }
+
+.menu .step { width: 320px; transition: all 0.5s; }
+
+.menu .step__wraper { position: sticky; top: 57px; }
+
+.menu .step__top { padding: 0px 30px; }
+
+.menu .step__top .search { width: 100%; border-radius: 50px; border: none; background-color: #202225; color: var(--bgMenu); padding: 7px 24px; }
+
+.menu .step--hide { width: 72px; }
+
+.menu .step--hide .step__top { padding: 0px; }
+
+.menu .step--hide .search { display: none; align-self: center; }
+
+.menu .step--hide .menu__panel { flex-direction: column; }
+
+.menu .step--hide .btn { transform: rotate(180deg); align-self: center; order: 1; }
+
+.menu .step--hide .switch { margin-top: 80px; order: 2; align-self: center; }
+
+.menu__panel { display: flex; justify-content: space-between; }
+
+.menu__panel .switch { margin-top: 37px; width: 40px; height: 20px; background-color: var(--mainColor); border-radius: 100px; position: relative; }
+
+.menu__panel .switch::after { content: ""; width: 16px; height: 16px; border-radius: 100%; background-color: var(--bgMenu); position: absolute; top: 50%; margin-top: -8px; left: 2px; transition: left 0.3s; }
+
+.menu__panel .switch--active::after { left: 22px; }
+
+.btn__hide { align-self: flex-end; }
+
+.content { min-height: 100vh; width: 100%; }
+
+.content p { line-height: 30px; text-align: justify; letter-spacing: 0.1em; text-indent: 25px; }
+/*# sourceMappingURL=style.css.map */

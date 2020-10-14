@@ -1,0 +1,97 @@
+.menu {
+  display: flex;
+  z-index: 200;
+  background-color: $bgMenu;
+
+  .theme {
+    width: 78px;
+    height: 100%;
+    background-color: #202225;
+  }
+
+  .step {
+    width: 320px;
+    transition: all 0.5s;
+
+    &__wraper {
+      position: sticky;
+      top: 57px;
+    }
+
+    &__top {
+      padding: 0px 30px;
+
+      .search {
+        width: 100%;
+        border-radius: 50px;
+        border: none;
+        background-color: #202225;
+        color: $bgMenu;
+        padding: 7px 24px;
+      }
+    }
+
+    &--hide {
+      width: 72px;
+      & .step__top {
+        padding: 0px;
+      }
+
+      & .search {
+        display: none;
+        align-self: center;
+      }
+
+      & .menu__panel {
+        flex-direction: column;
+      }
+
+      & .btn {
+        transform: rotate(180deg);
+        align-self: center;
+        order: 1;
+      }
+
+      & .switch {
+        margin-top: 80px;
+        order: 2;
+        align-self: center;
+      }
+    }
+  }
+}
+
+.menu__panel {
+  display: flex;
+  justify-content: space-between;
+
+  & .switch {
+    margin-top: 37px;
+    width: 40px;
+    height: 20px;
+    background-color: $mainColor;
+    border-radius: 100px;
+    position: relative;
+    &::after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      background-color: $bgMenu;
+      position: absolute;
+      top: 50%;
+      margin-top: -8px;
+      left: 2px;
+      transition: left 0.3s;
+    }
+  }
+  .switch--active {
+    &::after {
+      left: 22px;
+    }
+  }
+}
+
+.btn__hide {
+  align-self: flex-end;
+}
