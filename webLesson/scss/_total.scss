@@ -30,7 +30,7 @@ html {
   & p {
     padding: 0.7rem 0px;
     font-size: 14px;
-    margin-left: 500px;
+    margin-left: 85px;
   }
 
   & span {
@@ -38,8 +38,7 @@ html {
   }
 }
 
-.btn {
-  & path {
-    fill: $mainColor;
-  }
+path {
+  fill: $mainColor;
 }
+
