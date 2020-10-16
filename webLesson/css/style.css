@@ -238,6 +238,34 @@ path {
   visibility: hidden;
 }
 
+.theme__content {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.theme__item {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: 7px;
+  background-color: var(--extraColor);
+  width: 100%;
+}
+
+.theme__item img {
+  display: block;
+  margin: 0px auto;
+  width: 50px;
+}
+
 .content {
   min-height: 100vh;
   width: 100%;
