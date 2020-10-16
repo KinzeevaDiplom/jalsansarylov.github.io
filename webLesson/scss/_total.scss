@@ -40,5 +40,15 @@ html {
 
 path {
   fill: $mainColor;
+  transition: fill 0.3s;
 }
 
+.btn,
+.prev,
+.next {
+  &:hover {
+    & path {
+      fill: $extraColor;
+    }
+  }
+}

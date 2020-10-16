@@ -1,8 +1,14 @@
 $(document).ready(function () {
+
+
+
   // изменения при скролле
   let colPage = $(".step__link").length;
   let heightPage = new Array();
   let namePage = new Array();
+  // вперед/назад кнопки
+  let prev = $(".prev");
+  let next = $(".next");
 
   for (let i = 0; i < colPage; i++) {
     heightPage[i] = $('.content__title:eq('+i+')').offset().top;
@@ -12,11 +18,14 @@ $(document).ready(function () {
   $(window).scroll(function() {
     let scroll = $(window).scrollTop();
     for (let i = 0; i <= colPage; i++) {
-      if ($(window).scrollTop() + 500 >= heightPage[i]){
+      if ($(window).scrollTop() + 700 >= heightPage[i]){
          $(".top-panel__title").text(namePage[i]);
 
          $(".step__link").removeClass("step__link--focus");
          $('.step__link:eq('+i+')').addClass("step__link--focus");
+        // вперед/назад кнопки
+          prev.attr("href","#"+(i-1))
+          next.attr("href","#"+(i+1))
       }    
     }
   });
@@ -68,5 +77,7 @@ $(document).ready(function () {
       .animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 700);
     e.preventDefault();
   });
+
+
 
 });
