@@ -27,7 +27,7 @@
         border-radius: 50px;
         border: none;
         background-color: #202225;
-        color: $bgMenu;
+        color: white;
         padding: 7px 24px;
       }
     }
@@ -62,7 +62,8 @@
       }
 
       & .step__chapter {
-        visibility: hidden;
+        animation-delay: 1s;
+        display: none;
       }
     }
   }
@@ -129,6 +130,7 @@
 }
 
 .arrow-scroll {
+  margin-top: 240px;
   display: flex;
   flex-direction: column;
 }
@@ -150,6 +152,7 @@
 .theme {
   &__content {
     position: sticky;
+    overflow: hidden;
     top: 70px;
     display: flex;
     flex-direction: column;
@@ -157,13 +160,45 @@
 
   &__item {
     align-self: center;
-    margin-left: 7px;
-    background-color: $extraColor;
     width: 100%;
-    & img {
+    margin-bottom: 30px;
+
+    &:hover {
+      & path {
+        fill: white;
+      }
+    }
+
+    & path {
+      fill: #b5b5b5;
+    }
+
+    &--active {
+      margin-left: 13px;
+      background-color: $extraColor;
+      border-radius: 10px 0px 0px 10px;
+
+      & path {
+        fill: $bgTopPanel;
+      }
+    }
+
+    & a {
+      padding: 10px 0px;
       display: block;
-      margin: 0px auto;
-      width: 50px;
+      // margin: 0px 20px 0px auto;
+      margin: 0% auto;
+      border-radius: 100%;
+    }
+
+    & svg {
+      width: 100%;
+      object-position: 50%;
     }
   }
+}
+
+.step__item--hide {
+  //
+  display: none;
 }

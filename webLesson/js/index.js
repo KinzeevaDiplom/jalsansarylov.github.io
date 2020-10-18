@@ -1,11 +1,13 @@
 $(document).ready(function () {
 
-
-
   // изменения при скролле
   let colPage = $(".step__link").length;
   let heightPage = new Array();
   let namePage = new Array();
+  let nameStep = new Array();
+  let popBoxHeight = $(".pop-box").height();
+
+  
   // вперед/назад кнопки
   let prev = $(".prev");
   let next = $(".next");
@@ -13,12 +15,14 @@ $(document).ready(function () {
   for (let i = 0; i < colPage; i++) {
     heightPage[i] = $('.content__title:eq('+i+')').offset().top;
     namePage[i] = $('.content__title:eq('+i+')').text();
+    nameStep[i] = $('.content__title:eq('+i+')').text().toLowerCase();
   }
 
   $(window).scroll(function() {
     let scroll = $(window).scrollTop();
     for (let i = 0; i <= colPage; i++) {
-      if ($(window).scrollTop() + 700 >= heightPage[i]){
+      console.log(popBoxHeight);
+      if ($(window).scrollTop() + popBoxHeight >= heightPage[i]){
          $(".top-panel__title").text(namePage[i]);
 
          $(".step__link").removeClass("step__link--focus");
@@ -29,6 +33,26 @@ $(document).ready(function () {
       }    
     }
   });
+
+   // поиск по главам
+   $(".search").keyup(function(){
+    let val =   $(".search").val().trim();
+    if (val != ""){
+      for (let i = 0; i < colPage; i++) {
+        if (nameStep[i].search(val) == -1){
+          $(".step__item:eq("+i+")").addClass("step__item--hide");
+        }
+        else{
+          $(".step__item:eq("+i+")").removeClass("step__item--hide");
+        }
+      }
+    }
+    else{
+      for (let i = 0; i < colPage; i++) {
+          $(".step__item:eq("+i+")").removeClass("step__item--hide");
+      }
+    }
+  })
 
   // переключатель темной темы
   $(".switch").click(function () {
@@ -78,6 +102,5 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
-  
-
+ 
 });
