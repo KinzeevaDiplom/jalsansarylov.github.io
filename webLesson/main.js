@@ -6,10 +6,14 @@ let win;
 // функция открытия приложения
 function createWindow() {
   win = new BrowserWindow({
-    width: 700,
-    height: 500,
+    minWidth: 1200,
+    minHeight: 800,
     icon: __dirname + "/img/icon.png",
-    // autoHideMenuBar: true,
+    autoHideMenuBar: true,
+    // frame: false,
+
+    backgroundColor: '#333'
+
   });
 
   win.loadURL(
@@ -20,7 +24,7 @@ function createWindow() {
     })
   );
 
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
   win.on("closed", () => {
     win = null;

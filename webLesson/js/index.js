@@ -1,11 +1,13 @@
 $(document).ready(function () {
+  if (localStorage.getItem('darkThemeOn') == "true"){
+    darkThemeOn();
+  }
+
 
   // изменения при скролле
   let colPage = $(".step__link").length;
-  let heightPage = new Array();
   let namePage = new Array();
   let nameStep = new Array();
-  let popBoxHeight = $(".pop-box").height();
 
   
   // вперед/назад кнопки
@@ -13,16 +15,13 @@ $(document).ready(function () {
   let next = $(".next");
 
   for (let i = 0; i < colPage; i++) {
-    heightPage[i] = $('.content__title:eq('+i+')').offset().top;
     namePage[i] = $('.content__title:eq('+i+')').text();
     nameStep[i] = $('.content__title:eq('+i+')').text().toLowerCase();
   }
 
   $(window).scroll(function() {
-    let scroll = $(window).scrollTop();
-    for (let i = 0; i <= colPage; i++) {
-      console.log(popBoxHeight);
-      if ($(window).scrollTop() + popBoxHeight >= heightPage[i]){
+    for (let i = 0; i < colPage; i++) {
+      if ($(window).scrollTop() + $(".pop-box").height() >= $(".content__title:eq("+i+")").offset().top){
          $(".top-panel__title").text(namePage[i]);
 
          $(".step__link").removeClass("step__link--focus");
@@ -56,9 +55,16 @@ $(document).ready(function () {
 
   // переключатель темной темы
   $(".switch").click(function () {
-    $(this).toggleClass("switch--active");
+    darkThemeOn();
+  });
 
-    if ($(this).hasClass("switch--active")) {
+  function darkThemeOn() {
+    $(".switch").toggleClass("switch--active");
+
+    if ($(".switch").hasClass("switch--active")) {
+      // запоинатор включения темной темы
+      localStorage.setItem('darkThemeOn', 'true');
+
       $(":root").css({
         "--mainColor": "#B9BBBE",
         "--bgMain": "#36393F",
@@ -67,6 +73,9 @@ $(document).ready(function () {
         "--extraColor": "#EB850E",
       });
     } else {
+      // запоинатор выключения темной темы
+      localStorage.setItem('darkThemeOn', 'false');
+
       $(":root").css({
         "--mainColor": "#202225",
         "--bgMain": "#ebebeb",
@@ -75,7 +84,8 @@ $(document).ready(function () {
         "--extraColor": "#AF0000",
       });
     }
-  });
+
+  }
 
   // вскрыть меню
   $(".btn__hide").click(function () {
