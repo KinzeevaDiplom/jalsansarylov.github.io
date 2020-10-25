@@ -100,6 +100,8 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .content__text p { line-height: 30px; text-align: justify; letter-spacing: 0.1em; text-indent: 25px; }
 
+.content__text p a { color: var(--extraColor); }
+
 .content__text .content__title { font-size: 25px; padding: 47px 0px; font-weight: normal; }
 
 .for__link { position: absolute; text-align: center; display: block; left: 50%; transform: translate(-50%); bottom: 2rem; color: var(--bgTopPanel); text-decoration: none; transition: color 0.5s; }
