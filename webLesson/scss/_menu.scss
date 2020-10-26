@@ -7,11 +7,13 @@
     width: 78px;
     height: 100%;
     background-color: #202225;
+    z-index: 200;
   }
 
   .step {
     width: 320px;
     transition: all 0.5s;
+    z-index: 198;
 
     &__wraper {
       position: sticky;

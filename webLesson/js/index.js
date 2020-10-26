@@ -1,8 +1,24 @@
 $(document).ready(function () {
+
+  // preloader
+  let preloader = $(".holder");
+  setTimeout(() => {
+    preloader.css("opacity","0");
+    // удаление после прогрузки страницы
+    setTimeout(() => {
+      if($(".holder").css('opacity') == "0"){
+        preloader.remove();
+      }
+    }, 500);
+  }, 500);
+  
+
+  // запоминает какая тема выбрана
   if (localStorage.getItem('darkThemeOn') == "true"){
     darkThemeOn();
   }
 
+  
 
   // изменения при скролле
   let colPage = $(".step__link").length;
@@ -14,9 +30,20 @@ $(document).ready(function () {
   let prev = $(".prev");
   let next = $(".next");
 
+  // переменные с именами глав болшим и маленьким регистром
   for (let i = 0; i < colPage; i++) {
     namePage[i] = $('.content__title:eq('+i+')').text();
     nameStep[i] = $('.content__title:eq('+i+')').text().toLowerCase();
+  }
+  // текущее положение при загрузке
+
+  for (let i = 0; i < colPage; i++) {
+    if ($(window).scrollTop() + $(".pop-box").height() >= $(".content__title:eq("+i+")").offset().top){
+       $(".top-panel__title").text(namePage[i]);
+
+       $(".step__link").removeClass("step__link--focus");
+       $('.step__link:eq('+i+')').addClass("step__link--focus");
+    }    
   }
 
   $(window).scroll(function() {
@@ -38,7 +65,7 @@ $(document).ready(function () {
     let val =   $(".search").val().trim();
     if (val != ""){
       for (let i = 0; i < colPage; i++) {
-        if (nameStep[i].search(val) == -1){
+        if (nameStep[i].search(val) == -1 && namePage[i].search(val) == -1){
           $(".step__item:eq("+i+")").addClass("step__item--hide");
         }
         else{
