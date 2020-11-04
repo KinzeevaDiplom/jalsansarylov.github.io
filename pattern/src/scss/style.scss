@@ -1,0 +1,33 @@
+$whContainer: 1200px;
+$fsizeMain: 15px;
+$ffamilyMain: "Raleway", sans-serif;
+$mainColor: #ebebeb;
+$mainText: #000000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-family: $ffamilyMain;
+  font-size: $fsizeMain;
+  & p {
+    line-height: 1.7rem;
+  }
+}
+
+body {
+  background-color: $mainColor;
+  // min-height: 110vh;
+}
+
+.container {
+  max-width: $whContainer;
+  margin: 0 auto;
+  padding: 0rem 1rem;
+}
+
+@import "module.scss";
