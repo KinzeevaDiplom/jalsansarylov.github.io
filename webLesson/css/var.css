@@ -1,0 +1,9 @@
+:root {
+  --mainColor: #202225;
+  --bgMain: #ebebeb;
+  --bgMenu: #d2d2d2;
+  --bgTopPanel: #b5b5b5;
+  --extraColor: #af0000;
+  --whContainer: 1234px;
+  transition: all 0.3s;
+}
