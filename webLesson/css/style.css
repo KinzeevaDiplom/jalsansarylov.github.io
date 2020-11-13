@@ -52,7 +52,7 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .menu .step--hide .size-rugulator { display: none; align-self: center; }
 
-.menu .step--hide .menu__panel { flex-direction: column; }
+.menu .step--hide .menu__panel { flex-direction: column; margin-top: 0px; }
 
 .menu .step--hide .btn { transform: rotate(180deg); align-self: center; order: 1; }
 
