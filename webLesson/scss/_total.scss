@@ -56,6 +56,7 @@ path {
 .prev,
 .next {
   &:hover {
+    cursor: pointer;
     & path {
       fill: $extraColor;
     }

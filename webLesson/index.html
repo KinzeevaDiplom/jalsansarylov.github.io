@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <title>WebLesson</title>
     <!-- подключение css -->
     <link rel="stylesheet" href="css/style.css" />
@@ -43,6 +44,10 @@
           <div class="step__wraper">
             <div class="step__top">
               <input placeholder = "Поиск главы" type="text" class="search "></input>
+              <div class="size-rugulator">
+                <p>Размер шрифта</p> <input id="range_size" type="range" value="16" min="16" max="22" step="1" class="size-rugulator__sider" oninput="resizeText()">
+
+              </div>
               <div class="menu__panel">
                 <div class="switch"></div>
                 <div class="btn__hide  btn"><svg width="27" height="8" viewBox="0 0 27 8" fill="none" xmlns="http://www.w3.org/2000/svg">

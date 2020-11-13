@@ -18,7 +18,9 @@ $(document).ready(function () {
     darkThemeOn();
   }
 
-  
+  // запоминает размер шрифта
+  $('#range_size').attr('value', localStorage.getItem('fontSize'));
+  $('.content__text').css('font-size', localStorage.getItem('fontSize')+'px');
 
   // изменения при скролле
   let colPage = $(".step__link").length;
@@ -139,5 +141,13 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
- 
+
+
 });
+
+function resizeText(){
+  let sizeText = (document).getElementById('range_size').value;
+  console.log(sizeText);
+  $('.content__text').css('font-size', sizeText+'px');
+  localStorage.setItem('fontSize', sizeText);
+} 

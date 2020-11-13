@@ -16,6 +16,8 @@ html { color: var(--mainColor); font-family: Roboto, Areal; font-size: 16px; bac
 
 path { fill: var(--mainColor); transition: fill 0.3s; }
 
+.btn:hover, .prev:hover, .next:hover { cursor: pointer; }
+
 .btn:hover path, .prev:hover path, .next:hover path { fill: var(--extraColor); }
 
 ::-webkit-scrollbar { width: 7px; }
@@ -28,7 +30,7 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .menu .theme { width: 78px; height: 100%; background-color: #202225; z-index: 200; }
 
-.menu .step { width: 320px; transition: all 0.5s; z-index: 198; }
+.menu .step { width: 320px; transition: width 0.5s; z-index: 198; }
 
 .menu .step__wraper { position: sticky; top: 57px; }
 
@@ -36,11 +38,19 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .menu .step__top .search { width: 100%; border-radius: 50px; border: none; background-color: #202225; color: white; padding: 7px 24px; }
 
+.menu .step__top .size-rugulator { margin-top: 37px; display: flex; justify-content: space-between; font-size: 12px; transition: none; cursor: pointer; }
+
+.menu .step__top .size-rugulator__sider { appearance: none; background-color: var(--bgTopPanel); height: 2px; width: 146px; align-self: center; }
+
+.menu .step__top .size-rugulator__sider::-webkit-slider-thumb { appearance: none; -webkit-appearance: none; background-color: var(--mainColor); border: none; border-radius: 100%; width: 10px; height: 10px; cursor: pointer; }
+
 .menu .step--hide { width: 72px; }
 
 .menu .step--hide .step__top { padding: 0px; border: none; }
 
 .menu .step--hide .search { visibility: hidden; align-self: center; }
+
+.menu .step--hide .size-rugulator { display: none; align-self: center; }
 
 .menu .step--hide .menu__panel { flex-direction: column; }
 
@@ -50,9 +60,9 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .menu .step--hide .step__chapter { animation-delay: 1s; display: none; }
 
-.menu__panel { display: flex; justify-content: space-between; }
+.menu__panel { display: flex; justify-content: space-between; margin-top: 37px; }
 
-.menu__panel .switch { margin-top: 37px; width: 40px; height: 20px; background-color: var(--mainColor); border-radius: 100px; position: relative; }
+.menu__panel .switch { cursor: pointer; width: 40px; height: 20px; background-color: var(--mainColor); border-radius: 100px; position: relative; }
 
 .menu__panel .switch::after { content: ""; width: 16px; height: 16px; border-radius: 100%; background-color: var(--bgMenu); position: absolute; top: 50%; margin-top: -8px; left: 2px; transition: left 0.3s; }
 

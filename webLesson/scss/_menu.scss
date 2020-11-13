@@ -12,7 +12,7 @@
 
   .step {
     width: 320px;
-    transition: all 0.5s;
+    transition: width 0.5s;
     z-index: 198;
 
     &__wraper {
@@ -32,6 +32,33 @@
         color: white;
         padding: 7px 24px;
       }
+
+      .size-rugulator {
+        margin-top: 37px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        transition: none;
+        cursor: pointer;
+        &__sider {
+          appearance: none;
+          background-color: $bgTopPanel;
+          height: 2px;
+          width: 146px;
+          align-self: center;
+
+          &::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            background-color: $mainColor;
+            border: none;
+            border-radius: 100%;
+            width: 10px;
+            height: 10px;
+            cursor: pointer;
+          }
+        }
+      }
     }
 
     &--hide {
@@ -42,8 +69,13 @@
       }
 
       & .search {
-        // display: none;
         visibility: hidden;
+        align-self: center;
+      }
+
+      & .size-rugulator {
+        display: none;
+        // visibility: hidden;
         align-self: center;
       }
 
@@ -74,9 +106,10 @@
 .menu__panel {
   display: flex;
   justify-content: space-between;
+  margin-top: 37px;
 
   & .switch {
-    margin-top: 37px;
+    cursor: pointer;
     width: 40px;
     height: 20px;
     background-color: $mainColor;
