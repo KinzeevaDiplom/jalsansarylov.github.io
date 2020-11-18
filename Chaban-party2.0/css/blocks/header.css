@@ -1,0 +1,125 @@
+.header{
+    height: 100vh;
+    background: url(../../image/bg/header_01.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.header__top{
+    padding-top:30px; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 100px;
+    display: block;
+    font-family: 'Righteous', cursive;
+    font-size: 24px;
+    line-height: 48px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.logo::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: red;
+    top: 50%;
+    left:20px;
+}
+
+nav{
+    align-self: center;
+}
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu__item{
+    list-style-type: none;
+    text-transform: uppercase;
+    margin-left: 60px;
+}
+
+.menu__link{
+    color:white;
+    font-size: 15px;
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: 300ms;
+}
+
+.menu__link:hover{
+    color:rgb(255, 255, 0);
+}
+
+.menu__link::after{
+    content:"";
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    width: 100%;
+    opacity: 0;
+    margin-top:15px; 
+}
+
+.menu__link:hover::after{
+    opacity: 1;
+    transition: opacity 300ms;
+    background-color:rgb(240, 240, 9);
+}
+
+.header__bottom{
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 150px;
+    line-height: 140px;
+    color:white;
+    text-align: center;
+}
+
+.welcome::after{
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #fff;
+    margin: 30px auto 20px auto;
+}
+
+.info__text{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.info__link{
+    padding: 10px 30px;
+    border:white 3px solid; 
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    transition-property: background-color, color;
+    transition-duration: 300ms;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.info__link:hover{
+    background-color:white;
+    color:black;
+}
+

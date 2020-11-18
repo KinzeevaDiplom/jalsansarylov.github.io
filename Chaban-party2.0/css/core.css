@@ -1,0 +1,15 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+body{
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrap{
+    max-width: 1500px;
+    margin: 0% auto;
+    min-width: 0px;
+}
