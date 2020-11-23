@@ -5,5 +5,7 @@
   --bgTopPanel: #b5b5b5;
   --extraColor: #af0000;
   --whContainer: 1234px;
+  --colorShadow: #606265;
+  /* --colorShadow: #23252c; */
   transition: all 0.3s;
 }

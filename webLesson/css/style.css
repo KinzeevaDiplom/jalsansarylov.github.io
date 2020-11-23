@@ -8,7 +8,7 @@ html { color: var(--mainColor); font-family: Roboto, Areal; font-size: 16px; bac
 
 .wraper { display: flex; justify-content: space-between; }
 
-.top-panel { position: fixed; width: 100%; z-index: 100; background-color: var(--bgTopPanel); }
+.top-panel { display: none; position: fixed; width: 100%; z-index: 100; background-color: var(--bgTopPanel); }
 
 .top-panel p { padding: 0.7rem 0px; font-size: 14px; margin-left: 85px; }
 
@@ -30,7 +30,7 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .menu .theme { width: 78px; height: 100%; background-color: #202225; z-index: 200; }
 
-.menu .step { width: 320px; transition: width 0.5s; z-index: 198; }
+.menu .step { box-shadow: 1px 0px 10px var(--colorShadow); width: 320px; transition: width 0.5s; z-index: 198; }
 
 .menu .step__wraper { position: sticky; top: 57px; }
 
@@ -106,15 +106,13 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .content { min-height: 100vh; width: 100%; position: relative; }
 
-.content__text { padding: 113px 0px 350px; }
-
-.content__text p { line-height: 30px; text-align: justify; letter-spacing: 0.1em; text-indent: 25px; }
+.content__text p { line-height: 30px; text-align: justify; letter-spacing: 0.1em; text-indent: 20px; }
 
 .content__text p a { color: var(--extraColor); }
 
 .content__text .content__title { font-size: 25px; padding: 47px 0px; font-weight: normal; }
 
-.for__link { position: absolute; text-align: center; display: block; left: 50%; transform: translate(-50%); bottom: 2rem; color: var(--bgTopPanel); text-decoration: none; transition: color 0.5s; }
+.for__link { text-align: center; display: block; color: var(--bgTopPanel); text-decoration: none; transition: color 0.5s; }
 
 .for__link:hover { color: var(--mainColor); }
 

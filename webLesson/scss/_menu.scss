@@ -11,6 +11,7 @@
   }
 
   .step {
+    box-shadow: 1px 0px 10px $colorShadow;
     width: 320px;
     transition: width 0.5s;
     z-index: 198;

@@ -4,12 +4,12 @@
   position: relative;
 
   &__text {
-    padding: 113px 0px 350px;
+    // padding-bottom: 100px;
     & p {
       line-height: 30px;
       text-align: justify;
       letter-spacing: 0.1em;
-      text-indent: 25px;
+      text-indent: 20px;
 
       & a {
         color: $extraColor;
@@ -25,12 +25,12 @@
 }
 
 .for__link {
-  position: absolute;
+  // position: absolute;
   text-align: center;
   display: block;
-  left: 50%;
-  transform: translate(-50%);
-  bottom: 2rem;
+  // left: 50%;
+  // transform: translate(-50%);
+  // bottom: 2rem;
   color: $bgTopPanel;
   text-decoration: none;
   transition: color 0.5s;

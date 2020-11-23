@@ -100,6 +100,7 @@ $(document).ready(function () {
         "--bgMenu": "#2F3136",
         "--bgTopPanel": "#202225",
         "--extraColor": "#EB850E",
+        "--colorShadow": "#23252c",
       });
     } else {
       // запоинатор выключения темной темы
@@ -111,6 +112,7 @@ $(document).ready(function () {
         "--bgMenu": " #d2d2d2",
         "--bgTopPanel": "#b5b5b5",
         "--extraColor": "#AF0000",
+        "--colorShadow": "#606265",
       });
     }
 
