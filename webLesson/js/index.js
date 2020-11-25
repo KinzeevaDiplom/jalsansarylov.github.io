@@ -1,83 +1,44 @@
 $(document).ready(function () {
-
-  // preloader
-  let preloader = $(".holder");
-  setTimeout(() => {
-    preloader.css("opacity","0");
-    // удаление после прогрузки страницы
-    setTimeout(() => {
-      if($(".holder").css('opacity') == "0"){
-        preloader.remove();
-      }
-    }, 500);
-  }, 500);
+  offPreloader();
   
+  // включает запоминенную тему
+  if (localStorage.getItem('darkThemeOn') == "true") darkThemeOn();
 
-  // запоминает какая тема выбрана
-  if (localStorage.getItem('darkThemeOn') == "true"){
-    darkThemeOn();
-  }
-
-  // запоминает размер шрифта
+  //  включает запоминенный размер шрифта
   $('#range_size').attr('value', localStorage.getItem('fontSize'));
-  $('.content__text').css('font-size', localStorage.getItem('fontSize')+'px');
+  resizeText();
 
-  // изменения при скролле
-  let colPage = $(".step__link").length;
-  let namePage = new Array();
-  let nameStep = new Array();
-
+  let colPage = $(".content--text__item").length;
+  let stepNamesU = new Array();
+  let stepNamesL = new Array();
   
-  // вперед/назад кнопки
-  let prev = $(".prev");
-  let next = $(".next");
-
-  // переменные с именами глав болшим и маленьким регистром
-  for (let i = 0; i < colPage; i++) {
-    namePage[i] = $('.content__title:eq('+i+')').text();
-    nameStep[i] = $('.content__title:eq('+i+')').text().toLowerCase();
-  }
+  // создание глав
+  createNav()
+  
   // текущее положение при загрузке
-
-  for (let i = 0; i < colPage; i++) {
-    if ($(window).scrollTop() + $(".pop-box").height() >= $(".content__title:eq("+i+")").offset().top){
-       $(".top-panel__title").text(namePage[i]);
-
-       $(".step__link").removeClass("step__link--focus");
-       $('.step__link:eq('+i+')').addClass("step__link--focus");
-    }    
-  }
+  markerStep();
 
   $(window).scroll(function() {
-    for (let i = 0; i < colPage; i++) {
-      if ($(window).scrollTop() + $(".pop-box").height() >= $(".content__title:eq("+i+")").offset().top){
-         $(".top-panel__title").text(namePage[i]);
-
-         $(".step__link").removeClass("step__link--focus");
-         $('.step__link:eq('+i+')').addClass("step__link--focus");
-        // вперед/назад кнопки
-          prev.attr("href","#"+(i-1))
-          next.attr("href","#"+(i+1))
-      }    
-    }
+    markerStep();
   });
 
    // поиск по главам
    $(".search").keyup(function(){
     let val =   $(".search").val().trim();
+    console.log(val);
     if (val != ""){
       for (let i = 0; i < colPage; i++) {
-        if (nameStep[i].search(val) == -1 && namePage[i].search(val) == -1){
-          $(".step__item:eq("+i+")").addClass("step__item--hide");
+        if (stepNamesU[i].search(val) == -1 && stepNamesL[i].search(val) == -1){
+          $(".step__link:eq("+i+")").addClass("step__item--hide");
         }
         else{
-          $(".step__item:eq("+i+")").removeClass("step__item--hide");
+          $(".step__link:eq("+i+")").removeClass("step__item--hide");
         }
       }
     }
     else{
       for (let i = 0; i < colPage; i++) {
-          $(".step__item:eq("+i+")").removeClass("step__item--hide");
+          $(".step__link:eq("+i+")").removeClass("step__item--hide");
       }
     }
   })
@@ -86,37 +47,6 @@ $(document).ready(function () {
   $(".switch").click(function () {
     darkThemeOn();
   });
-
-  function darkThemeOn() {
-    $(".switch").toggleClass("switch--active");
-
-    if ($(".switch").hasClass("switch--active")) {
-      // запоинатор включения темной темы
-      localStorage.setItem('darkThemeOn', 'true');
-
-      $(":root").css({
-        "--mainColor": "#B9BBBE",
-        "--bgMain": "#36393F",
-        "--bgMenu": "#2F3136",
-        "--bgTopPanel": "#202225",
-        "--extraColor": "#EB850E",
-        "--colorShadow": "#23252c",
-      });
-    } else {
-      // запоинатор выключения темной темы
-      localStorage.setItem('darkThemeOn', 'false');
-
-      $(":root").css({
-        "--mainColor": "#202225",
-        "--bgMain": "#ebebeb",
-        "--bgMenu": " #d2d2d2",
-        "--bgTopPanel": "#b5b5b5",
-        "--extraColor": "#AF0000",
-        "--colorShadow": "#606265",
-      });
-    }
-
-  }
 
   // вскрыть меню
   $(".btn__hide").click(function () {
@@ -144,12 +74,82 @@ $(document).ready(function () {
   });
 
 
+// функции 
+function createNav() {
+  for (let i = 0; i < colPage; i++) {
+    let nameStep = (i+1) + '. ' + $('.content--text__item:eq('+i+') h2').text()
 
+    $(".step__chapter").append($('<a href = "#'+i+'" class = "step__link">'+nameStep+'</a>'));
+    //запоминание названии нужно для поиска
+    stepNamesU[i] = nameStep;
+    stepNamesL[i] = nameStep.toLowerCase();
+    console.log(stepNamesU[i]);
+  }  
+}
+
+function offPreloader(){
+  let preloader = $(".holder");
+  setTimeout(() => {
+    preloader.css("opacity","0");
+    // удаление после прогрузки страницы
+    setTimeout(() => {
+      if($(".holder").css('opacity') == "0"){
+        preloader.remove();
+      }
+    }, 500);
+  }, 500);
+ }
+
+function darkThemeOn() {
+  $(".switch").toggleClass("switch--active");
+
+  if ($(".switch").hasClass("switch--active")) {
+    // запоинатор включения темной темы
+    localStorage.setItem('darkThemeOn', 'true');
+    $(":root").css({
+      "--mainColor": "#B9BBBE",
+      "--bgMain": "#36393F",
+      "--bgMenu": "#2F3136",
+      "--bgTopPanel": "#202225",
+      // "--extraColor": "#EB850E",
+      "--colorShadow": "#23252c",
+    });
+  } else {
+    // запоинатор выключения темной темы
+    localStorage.setItem('darkThemeOn', 'false');
+    $(":root").css({
+      "--mainColor": "#202225",
+      "--bgMain": "#ebebeb",
+      "--bgMenu": " #d2d2d2",
+      "--bgTopPanel": "#b5b5b5",
+      // "--extraColor": "#AF0000",
+      "--colorShadow": "#606265",
+    });
+  }
+}
+
+function markerStep() {
+  // вперед/назад кнопки
+  let prev = $(".prev");
+  let next = $(".next");
+
+  for (let i = 0; i < colPage; i++) {
+    if ($(window).scrollTop() + $(".pop-box").height() >= $(".content__title:eq("+i+")").offset().top){
+      //  $(".top-panel__title").text(namePage[i]);
+
+       $(".step__link").removeClass("step__link--focus");
+       $('.step__link:eq('+i+')').addClass("step__link--focus");
+      // вперед/назад кнопки
+        prev.attr("href","#"+(i-1))
+        next.attr("href","#"+(i+1))
+    }    
+  }
+}
+// end
 });
 
 function resizeText(){
   let sizeText = (document).getElementById('range_size').value;
-  console.log(sizeText);
   $('.content__text').css('font-size', sizeText+'px');
   localStorage.setItem('fontSize', sizeText);
 } 
