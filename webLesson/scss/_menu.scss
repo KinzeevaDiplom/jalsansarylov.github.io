@@ -17,8 +17,13 @@
     z-index: 198;
 
     &__wraper {
+      height: 100px;
       position: sticky;
       top: 57px;
+    }
+
+    & .btn__wrapper {
+      padding: 0px 2rem;
     }
 
     &__top {
@@ -85,7 +90,7 @@
         margin-top: 0px;
       }
 
-      & .btn {
+      & .btn-arrow {
         transform: rotate(180deg);
         align-self: center;
         order: 1;
@@ -99,6 +104,10 @@
 
       & .step__chapter {
         animation-delay: 1s;
+        display: none;
+      }
+
+      & .btn__wrapper {
         display: none;
       }
     }

@@ -20,6 +20,10 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .btn:hover path, .prev:hover path, .next:hover path { fill: var(--extraColor); }
 
+.btn { border: 2px solid var(--extraColor); border-radius: 100px; text-align: center; background-color: rgba(255, 255, 255, 0); padding: 10px 0px; color: var(--mainColor); width: 100%; font-size: 14px; transition: all 0.3s; display: block; text-decoration: none; }
+
+.btn:hover { color: white; background-color: var(--extraColor); }
+
 ::-webkit-scrollbar { width: 7px; }
 
 ::-webkit-scrollbar-track { background-color: rgba(255, 255, 255, 0); }
@@ -32,7 +36,9 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .menu .step { box-shadow: 1px 0px 10px var(--colorShadow); width: 320px; transition: width 0.5s; z-index: 198; }
 
-.menu .step__wraper { position: sticky; top: 57px; }
+.menu .step__wraper { height: 100px; position: sticky; top: 57px; }
+
+.menu .step .btn__wrapper { padding: 0px 2rem; }
 
 .menu .step__top { padding: 0px 30px 35px; border-bottom: 2px solid #202225; }
 
@@ -54,11 +60,13 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .menu .step--hide .menu__panel { flex-direction: column; margin-top: 0px; }
 
-.menu .step--hide .btn { transform: rotate(180deg); align-self: center; order: 1; }
+.menu .step--hide .btn-arrow { transform: rotate(180deg); align-self: center; order: 1; }
 
 .menu .step--hide .switch { margin-top: 80px; order: 2; align-self: center; }
 
 .menu .step--hide .step__chapter { animation-delay: 1s; display: none; }
+
+.menu .step--hide .btn__wrapper { display: none; }
 
 .menu__panel { display: flex; justify-content: space-between; margin-top: 37px; }
 
@@ -112,7 +120,11 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 
 .content__text .content__title { font-size: 25px; padding: 47px 0px; font-weight: normal; }
 
-.for__link { text-align: center; display: block; color: var(--bgTopPanel); text-decoration: none; transition: color 0.5s; }
+.content__text .btn__wrapper { width: 240px; margin: 20px 0px; }
+
+.content__text .name-new-section { width: 100%; border-radius: 50px; border: none; background-color: #202225; color: white; padding: 12px 24px; width: 240px; }
+
+.for__link { text-align: center; display: block; color: var(--bgTopPanel); text-decoration: none; margin: 20px 0px; transition: color 0.5s; }
 
 .for__link:hover { color: var(--mainColor); }
 
@@ -129,6 +141,12 @@ path { fill: var(--mainColor); transition: fill 0.3s; }
 .img__middle { min-width: 300px; max-width: 500px; }
 
 .img__small { min-width: 100px; max-width: 300px; }
+
+.give-name { display: flex; align-items: center; }
+
+.give-name .name-new-section { margin-right: 1rem; }
+
+.give-name .btn__wrapper { margin-right: 1rem; max-width: 140px; }
 
 .holder { position: fixed; left: 0px; top: 0px; bottom: 0px; right: 0px; width: 100%; height: 100%; background-color: #36393f; z-index: 199; transition: opacity 0.4s; }
 

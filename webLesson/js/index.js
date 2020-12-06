@@ -1,5 +1,9 @@
 $(document).ready(function () {
-  offPreloader();
+  
+  // после загрузки всех фотографии страницы выключиться прелодер
+  $('#container').imagesLoaded( function() {
+    offPreloader();
+  });
   
   // включает запоминенную тему
   if (localStorage.getItem('darkThemeOn') == "true") darkThemeOn();
@@ -83,7 +87,6 @@ function createNav() {
     //запоминание названии нужно для поиска
     stepNamesU[i] = nameStep;
     stepNamesL[i] = nameStep.toLowerCase();
-    console.log(stepNamesU[i]);
   }  
 }
 

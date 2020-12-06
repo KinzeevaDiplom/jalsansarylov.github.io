@@ -64,6 +64,25 @@ path {
   }
 }
 
+.btn {
+  border: 2px solid $extraColor;
+  border-radius: 100px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px 0px;
+  color: $mainColor;
+  width: 100%;
+  font-size: 14px;
+  transition: all 0.3s;
+  display: block;
+  text-decoration: none;
+
+  &:hover {
+    color: white;
+    background-color: $extraColor;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 7px;
 }

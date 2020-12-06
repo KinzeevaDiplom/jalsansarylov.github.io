@@ -4,7 +4,6 @@
   position: relative;
 
   &__text {
-    // padding-bottom: 100px;
     & p {
       line-height: 30px;
       text-align: justify;
@@ -21,6 +20,21 @@
       padding: 47px 0px;
       font-weight: normal;
     }
+
+    & .btn__wrapper {
+      width: 240px;
+      margin: 20px 0px;
+    }
+
+    & .name-new-section {
+      width: 100%;
+      border-radius: 50px;
+      border: none;
+      background-color: #202225;
+      color: white;
+      padding: 12px 24px;
+      width: 240px;
+    }
   }
 }
 
@@ -33,6 +47,7 @@
   // bottom: 2rem;
   color: $bgTopPanel;
   text-decoration: none;
+  margin: 20px 0px;
   transition: color 0.5s;
 
   &:hover {
@@ -80,4 +95,18 @@
 .img__small {
   min-width: 100px;
   max-width: 300px;
+}
+
+.give-name {
+  display: flex;
+  align-items: center;
+
+  .name-new-section {
+    margin-right: 1rem;
+  }
+
+  .btn__wrapper {
+    margin-right: 1rem;
+    max-width: 140px;
+  }
 }
