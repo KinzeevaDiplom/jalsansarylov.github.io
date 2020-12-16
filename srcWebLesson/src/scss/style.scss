@@ -9,7 +9,8 @@ $mainColor: var(--mainColor);
 $extraColor: var(--extraColor);
 $colorShadow: var(--colorShadow);
 
-$ffamilyMain: Roboto, Areal;
+// $ffamilyMain: Roboto, Areal;
+$ffamilyMain:'Montserrat', sans-serif;
 
 //import
 @import "_total.scss";

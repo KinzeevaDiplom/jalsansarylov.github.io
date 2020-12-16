@@ -89,6 +89,7 @@
         transform: rotate(180deg);
         align-self: center;
         order: 1;
+        cursor: pointer;
       }
 
       & .switch {
@@ -139,6 +140,7 @@
 
 .btn__hide {
   align-self: flex-end;
+  cursor: pointer;
 }
 
 .step__chapter {
