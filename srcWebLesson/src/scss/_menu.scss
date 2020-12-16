@@ -19,6 +19,7 @@
     &__wraper {
       position: sticky;
       top: 57px;
+      height: calc(100vh - 57px);
     }
 
     &__top {
@@ -166,6 +167,7 @@
 
     &--focus {
       color: $extraColor;
+      // background-color: $bgTopPanel;
     }
   }
 }
