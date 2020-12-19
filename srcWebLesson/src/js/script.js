@@ -1,5 +1,8 @@
 $(document).ready(function () {
-  offPreloader();
+  // выключение прелоудера
+  $('#container').imagesLoaded( function() {
+    offPreloader();
+  });
   
   // включает запоминенную тему
   if (localStorage.getItem('darkThemeOn') == "true") darkThemeOn();
@@ -23,7 +26,7 @@ $(document).ready(function () {
   });
 
    // поиск по главам
-   $(".search").keyup(function(){
+   $(".search").keyup(function searchStep(){
     let val =   $(".search").val().trim();
     console.log(val);
     if (val != ""){
@@ -44,12 +47,12 @@ $(document).ready(function () {
   })
 
   // переключатель темной темы
-  $(".switch").click(function () {
+  $(".switch").click(function themeSwitchOn() {
     darkThemeOn();
   });
 
   // вскрыть меню
-  $(".btn__hide").click(function () {
+  $(".btn__hide").click(function menuHide() {
     $(".step").toggleClass("step--hide");
     $(".arrow-scroll").toggleClass("arrow-scroll--hide");
 
@@ -65,7 +68,7 @@ $(document).ready(function () {
   });
 
   // плавный скролл
-  $("body").on("click", '[href*="#"]', function (e) {
+  $("body").on("click", '[href*="#"]', function lazyScroll (e) {
     var fixed_offset = 100;
     $("html,body")
       .stop()
