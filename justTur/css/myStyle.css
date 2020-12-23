@@ -1,0 +1,16 @@
+.pros {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.pros .heading-92913:after {
+  position: absolute;
+  right: 0;
+}
+nav ul {
+  margin: 0px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
