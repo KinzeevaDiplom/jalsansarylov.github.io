@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;700&family=Rubik:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <title>KhakFly</title>
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="header-top__wrapper">
+            <div class="container">
+                <div class="header-top">
+                    <a href="#" class="logo test-logo"><img src="img/logo.png" alt="" class="logo"></a>
+                    <nav class="menu">
+                        <ul >
+                            <li>
+                                <a href=”#” class=”test-nav-1”>Акции</a>
+                            </li> 
+                            <li>
+                                <a href=”#” class=”test-nav-2”>Бронирование</a>
+                            </li>
+                            <li>
+                                <a href=”#” class=”test-nav-3”>Регистрация на рейс</a>
+                            </li>
+                            <li>
+                                <a href=”#” class=”test-nav-4”>Личный кабинет</a>
+                            </li>
+                        </ul>               
+                    </nav>
+                </div>   
+            </div>
+        </div>
+
+    
+        <div class="header__content">
+            <div class="container">
+                <div class="header__content__row">
+                    <div class="header__left">
+                        <p class="subtitle">путишевствуй с нами</p>
+                        <h1>В НЕБЕ КАК ДОМА !</h1>
+                    </div>
+                    <div class="header__right">
+                        
+                        <!-- Форма поиска -->
+                        <form action="" class="form1">
+                            <h2>ПОЙСК ПОДХОДЯЩЕГО РЕЙСА</h2>    
+                            <div class="form1-row1">
+                                <input class = 'test-0-fd ' placeholder="откуда" id="starting-point" type="text">
+                                <input class = 'test-0-fa ' placeholder="куда" type="text" id="ending-point">
+                            </div>
+                            <div class="form1-row2">
+                                <div class="form1__item">
+                                    <label for="starting-date">дата вылета</label>
+                                    <input class = 'test-0-fdt ' id="starting-date" type="date">
+                                </div>
+                                <div class="form1__item">
+                                    <label for="ending-date">дата прилета</label>
+                                    <input class = 'test-0-fat 'id="ending-date" type="date">
+                                </div>
+                                <div class="form1__item">
+                                    <label for="passenger">число пассажиров</label>
+                                    <select name="humans" class = 'test-0-fnp ' id="passenger">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">4</option>
+                                        <option value="">5</option>
+                                        <option value="">6</option>
+                                        <option value="">7</option>
+                                        <option value="">8</option>
+                                    </select>
+                                </div>
+                            </div>
+                        
+                            <a href="search.html" class="btn form1__btn test-0-fbs ">поиск</a>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <a href="#2" class="scroll-down"><img src="img/Arrow-Down.png" alt="arrow"></a>
+
+    </header>
+ 
+    <!-- ●	Секция(и) описания принципа накопления бронирований  -->
+    <section class="hot-sale" id = '2'>
+        <div class="title">
+            <h2>Система баллов бронирования</h2>
+            <p>Для тех кто часто летает это отличная возможность сэкономить</p>
+        </div>
+
+        <div class="container">
+            <div class="hot-sale__content">
+                <img src="img/hot-sale-bg.png" alt="инфографика" style="width: 100%;">
+            </div>
+        </div>
+    </section>
+    
+    <!-- ●	Секция о доверии компании. -->
+    <div class="trust">
+        <div class="container">
+            <div class="trust__content">
+                <div class="trust__item">
+                    <p>
+                        более 
+                        <span>7000</span>
+                        довольных клиентов
+                    </p>
+                </div>  
+                <div class="trust__item">
+                    <p>
+                        более 
+                        <span>1000</span>
+                        успешных перелетов
+                    </p>
+                </div>  
+                <div class="trust__item">
+                    <p>
+                        более 
+                        <span>5000</span>
+                        положительных отзывов
+                    </p>
+                </div>  
+            </div>
+        </div>
+    </div>
+</body>
+</html>
