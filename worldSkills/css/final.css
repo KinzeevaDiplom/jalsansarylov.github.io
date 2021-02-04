@@ -1,0 +1,21 @@
+.sub-info {
+  padding: 5rem 0;
+  border-bottom: 1px solid gray;
+}
+.sub-info__content {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sub-info__content li {
+  margin-top: 1rem;
+}
+
+.on-final {
+  border-bottom: 1px solid gray;
+}
+
+.place-on-airplane__content {
+  padding: 5rem 0;
+}

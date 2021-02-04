@@ -1,0 +1,113 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #1a1a1a;
+}
+
+html {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__link {
+  padding: 1rem;
+  display: inline-block;
+  color: rgb(117, 117, 117);
+  text-decoration: none;
+}
+
+.active {
+  color: orange;
+  transition: color 0.3s;
+}
+
+.content {
+  padding: 1rem;
+  max-width: 900px;
+  min-height: 30rem;
+}
+
+.comments {
+  height: 30rem;
+  overflow-y: auto;
+}
+
+.comment-item {
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.comment-item div {
+  margin-left: 1rem;
+}
+
+.comment-item h2 {
+  margin-bottom: 1rem;
+}
+.comment-item p {
+  max-width: 30rem;
+  color: rgb(170, 170, 170);
+  line-height: 1.4em;
+}
+
+.user-img {
+  border-radius: 1000rem;
+  border: 2px solid rgba(255, 166, 0, 0.459);
+  overflow: hidden;
+  min-width: 100px;
+  min-height: 100px;
+  width: 100px;
+  height: 100px;
+}
+
+.comment-item img {
+  width: 100%;
+}
+
+.add-comment {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.add-comment textarea {
+  resize: none;
+  background-color: rgba(39, 39, 39, 0.404);
+  padding: 1rem;
+  box-sizing: border-box;
+  color: white;
+  border: 2px solid orange;
+  border-radius: 1.2rem;
+  outline: none;
+  min-width: 70%;
+  overflow: visible;
+}
+
+.add-comment button {
+  border-radius: 1.2rem;
+  padding: 1rem;
+  color: rgb(155, 155, 155);
+  border: 2px solid orange;
+  background-color: #303030;
+  outline: none;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.add-comment button:hover {
+  color: orange;
+}

@@ -1,0 +1,71 @@
+.discount__content {
+  padding: 5rem 0rem;
+  width: 100%;
+}
+
+.discount__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.discount__item {
+  width: 22rem;
+  color: white;
+  border: 2px solid #ff9900;
+  border-radius: 0px 1rem 1rem 1rem;
+  background-color: #ff9900c0;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.discount__item img {
+  width: 100%;
+}
+
+.discount__item p {
+  text-align: left;
+  padding: 0rem 1rem 1rem 1rem;
+}
+.discount__item h3 {
+  padding: 1rem 1rem 0rem 1rem;
+}
+
+.discount__item a {
+  display: block;
+  text-align: right;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.subscrube__wrapper {
+  margin-top: 2rem;
+}
+
+#subscrube {
+  padding: 0.4em 1.2em;
+  border-radius: 1rem;
+  border: 1px solid #ff9900;
+  outline: none;
+}
+
+.subscrube-btn {
+  border: 1px solid #ff9900;
+  cursor: pointer;
+  margin-left: 2rem;
+}
+
+.on-broaning {
+  margin: 5rem 0;
+}
+
+.btn-next {
+  text-align: right;
+}
+
+.btn-next a {
+  border: 2px solid #ff9900;
+  color: white;
+  background-color: #ff990085;
+}
