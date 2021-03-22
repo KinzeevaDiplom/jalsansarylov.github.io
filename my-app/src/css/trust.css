@@ -1,0 +1,39 @@
+.trust {
+  background: url(../img/bg2.jpg) center center fixed no-repeat;
+  background-size: cover;
+  padding: 4rem 0;
+  overflow: hidden;
+  border-radius: 0 0 50px 0;
+}
+
+.trust__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trust__item {
+  max-width: 30%;
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
+}
+
+.trust__item span {
+  font-size: 9rem;
+  color: #ff9900;
+  line-height: 13rem;
+
+  /* margin: 10rem 0; */
+}
+
+.trust__item:nth-child(1) {
+  text-align: left;
+}
+
+.trust__item:nth-child(2) {
+  text-align: center;
+}
+
+.trust__item:nth-child(3) {
+  text-align: right;
+}

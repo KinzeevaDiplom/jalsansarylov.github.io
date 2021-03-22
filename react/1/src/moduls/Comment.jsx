@@ -5,12 +5,12 @@ const Comment = (props) => {
   let textareaEl = React.createRef();
 
   let addComment = () => {
-    props.addComment();
+    props.dispatch({ type: "ADD-COMMENT" });
   };
 
   let onPostChenge = () => {
     let text = textareaEl.current.value;
-    props.updateTextEl(text);
+    props.dispatch({ type: "UPDATE-TEXT-ELEMENT", text: text });
   };
 
   let commentsElement = props.commentsD.map((comment) => (

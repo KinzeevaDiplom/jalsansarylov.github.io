@@ -1,0 +1,35 @@
+{
+  "тема 1": {
+    "id": "1",
+    "step1": [
+      "text1",
+      "img/1.jpg small",
+      "<s>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur venenatis augue. <a href = 'https://www.uamedwed.com/blog/web/absolyutnyj-i-otnositelnyj-put-k-fajlam.html#put-otnositelno-dokumenta'>Aenean</a> sagittis, elit eget lacinia sagittis, libero mauris venenatis quam, at auctor massa augue non ante. Aenean tristique neque vitae mattis vestibulum. Vivamus ultrices quam purus, eu porta dui accumsan vel. Ut tempus, odio id blandit rhoncus, sem neque congue purus, eget commodo neque odio at metus. Praesent ac velit consectetur, iaculis ex nec, sollicitudin risus. Cras hendrerit vitae lectus non eleifend. Nulla consectetur erat vel enim pretium, at malesuada nulla laoreet. Etiam rutrum vehicula mi et dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris a gravida justo."
+    ],
+    "step2": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur venenatis augue. <a href = 'https://www.uamedwed.com/blog/web/absolyutnyj-i-otnositelnyj-put-k-fajlam.html#put-otnositelno-dokumenta'>Aenean</a> sagittis, elit eget lacinia sagittis, libero mauris venenatis quam, at auctor massa augue non ante. Aenean tristique neque vitae mattis vestibulum. Vivamus ultrices quam purus, eu porta dui accumsan vel. Ut tempus, odio id blandit rhoncus, sem neque congue purus, eget commodo neque odio at metus. Praesent ac velit consectetur, iaculis ex nec, sollicitudin risus. Cras hendrerit vitae lectus non eleifend. Nulla consectetur erat vel enim pretium, at malesuada nulla laoreet. Etiam rutrum vehicula mi et dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris a gravida justo.",
+      "img/1.jpg big"
+    ]
+  },
+  "theme 2": {
+    "id": "2",
+    "step1": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur venenatis augue. <a href = 'https://www.uamedwed.com/blog/web/absolyutnyj-i-otnositelnyj-put-k-fajlam.html#put-otnositelno-dokumenta'>Aenean</a> sagittis, elit eget lacinia sagittis, libero mauris venenatis quam, at auctor massa augue non ante. Aenean tristique neque vitae mattis vestibulum. Vivamus ultrices quam purus, eu porta dui accumsan vel. Ut tempus, odio id blandit rhoncus, sem neque congue purus, eget commodo neque odio at metus. Praesent ac velit consectetur, iaculis ex nec, sollicitudin risus. Cras hendrerit vitae lectus non eleifend. Nulla consectetur erat vel enim pretium, at malesuada nulla laoreet. Etiam rutrum vehicula mi et dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris a gravida justo.",
+      "img/1.jpg",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur venenatis augue. <a href = 'https://www.uamedwed.com/blog/web/absolyutnyj-i-otnositelnyj-put-k-fajlam.html#put-otnositelno-dokumenta'>Aenean</a> sagittis, elit eget lacinia sagittis, libero mauris venenatis quam, at auctor massa augue non ante. Aenean tristique neque vitae mattis vestibulum. Vivamus ultrices quam purus, eu porta dui accumsan vel. Ut tempus, odio id blandit rhoncus, sem neque congue purus, eget commodo neque odio at metus. Praesent ac velit consectetur, iaculis ex nec, sollicitudin risus. Cras hendrerit vitae lectus non eleifend. Nulla consectetur erat vel enim pretium, at malesuada nulla laoreet. Etiam rutrum vehicula mi et dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris a gravida justo."
+    ],
+    "step2": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur venenatis augue. <a href = 'https://www.uamedwed.com/blog/web/absolyutnyj-i-otnositelnyj-put-k-fajlam.html#put-otnositelno-dokumenta'>Aenean</a> sagittis, elit eget lacinia sagittis, libero mauris venenatis quam, at auctor massa augue non ante. Aenean tristique neque vitae mattis vestibulum. Vivamus ultrices quam purus, eu porta dui accumsan vel. Ut tempus, odio id blandit rhoncus, sem neque congue purus, eget commodo neque odio at metus. Praesent ac velit consectetur, iaculis ex nec, sollicitudin risus. Cras hendrerit vitae lectus non eleifend. Nulla consectetur erat vel enim pretium, at malesuada nulla laoreet. Etiam rutrum vehicula mi et dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris a gravida justo.",
+      "img/1.jpg big",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur venenatis augue. <a href = 'https://www.uamedwed.com/blog/web/absolyutnyj-i-otnositelnyj-put-k-fajlam.html#put-otnositelno-dokumenta'>Aenean</a> sagittis, elit eget lacinia sagittis, libero mauris venenatis quam, at auctor massa augue non ante. Aenean tristique neque vitae mattis vestibulum. Vivamus ultrices quam purus, eu porta dui accumsan vel. Ut tempus, odio id blandit rhoncus, sem neque congue purus, eget commodo neque odio at metus. Praesent ac velit consectetur, iaculis ex nec, sollicitudin risus. Cras hendrerit vitae lectus non eleifend. Nulla consectetur erat vel enim pretium, at malesuada nulla laoreet. Etiam rutrum vehicula mi et dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris a gravida justo."
+    ]
+  },
+  "theme3": {
+    "id": "3",
+    "step1": [
+      "<s>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur venenatis augue. <a href = 'https://www.uamedwed.com/blog/web/absolyutnyj-i-otnositelnyj-put-k-fajlam.html#put-otnositelno-dokumenta'>Aenean</a> sagittis, elit eget lacinia sagittis, libero mauris venenatis quam, at auctor massa augue non ante. Aenean tristique neque vitae mattis vestibulum. Vivamus ultrices quam purus, eu porta dui accumsan vel. Ut tempus, odio id blandit rhoncus, sem neque congue purus, eget commodo neque odio at metus. Praesent ac velit consectetur, iaculis ex nec, sollicitudin risus. Cras hendrerit vitae lectus non eleifend. Nulla consectetur erat vel enim pretium, at malesuada nulla laoreet. Etiam rutrum vehicula mi et dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris a gravida justo.",
+      "img/1.jpg",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur venenatis augue. <a href = 'https://www.uamedwed.com/blog/web/absolyutnyj-i-otnositelnyj-put-k-fajlam.html#put-otnositelno-dokumenta'>Aenean</a> sagittis, elit eget lacinia sagittis, libero mauris venenatis quam, at auctor massa augue non ante. Aenean tristique neque vitae mattis vestibulum. Vivamus ultrices quam purus, eu porta dui accumsan vel. Ut tempus, odio id blandit rhoncus, sem neque congue purus, eget commodo neque odio at metus. Praesent ac velit consectetur, iaculis ex nec, sollicitudin risus. Cras hendrerit vitae lectus non eleifend. Nulla consectetur erat vel enim pretium, at malesuada nulla laoreet. Etiam rutrum vehicula mi et dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris a gravida justo."
+    ]
+  }
+}

@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import "./App.css";
 import Home from "./moduls/Home";
 import Navigation from "./moduls/Navigation";
@@ -16,10 +15,9 @@ function App(props) {
             path="/comments"
             render={() => (
               <Comment
-                commentsD={props.state.commentsD}
-                addComment={props.addComment}
-                updateTextEl={props.updateTextEl}
-                newTextPost={props.state.newTextPost}
+                commentsD={props.state.commentsPage.commentsD}
+                newTextPost={props.state.commentsPage.newTextComment}
+                dispatch={props.dispatch}
               />
             )}
           />
