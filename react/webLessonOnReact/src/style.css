@@ -1,4 +1,4 @@
-:root {
+.white-theme {
   --mainColor: #202225;
   --bgMain: #ebebeb;
   --bgMenu: #d2d2d2;
@@ -8,6 +8,20 @@
   --colorShadow: #606265;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  --leftSwitch: 2px;
+}
+
+.dark-theme {
+  --mainColor: #b9bbbe;
+  --bgMain: #36393f;
+  --bgMenu: #2f3136;
+  --bgTopPanel: #202225;
+  --extraColor: #d67200;
+  --whContainer: 1234px;
+  --colorShadow: #23252c;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  --leftSwitch: 22px;
 }
 
 * {
@@ -18,10 +32,13 @@
   outline: 0;
 }
 html {
-  color: var(--mainColor);
   font-family: Montserrat, sans-serif;
   font-size: 16px;
-  background-color: var(--bgMain);
+}
+
+button {
+  border: none;
+  background-color: #20222500;
 }
 
 #root {
@@ -31,6 +48,8 @@ html {
 }
 
 .app {
+  color: var(--mainColor);
+  background-color: var(--bgMain);
   max-height: 100vh;
 }
 
@@ -92,7 +111,7 @@ path {
   background-color: rgba(255, 255, 255, 0);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--bgTopPanel);
+  background-color: #b5b5b5;
   border-radius: 100px;
 }
 .menu {
@@ -169,6 +188,11 @@ path {
   height: 10px;
   cursor: pointer;
 }
+
+.step--hide .container {
+  max-width: 1500px;
+}
+
 .menu .step--hide {
   width: 72px;
 }
@@ -243,13 +267,11 @@ path {
   position: absolute;
   top: 50%;
   margin-top: -8px;
-  left: 2px;
+  left: var(--leftSwitch);
   -webkit-transition: left 0.3s;
   transition: left 0.3s;
 }
-.menu__panel .switch--active::after {
-  left: 22px;
-}
+
 .btn__hide {
   -ms-flex-item-align: end;
   align-self: flex-end;
@@ -355,11 +377,9 @@ path {
   display: none;
 }
 .content {
+  background-color: var(--bgMain);
   overflow-y: scroll;
-  /* min-height: 100vh; */
   width: 100%;
-  /* position: relative; */
-  /* overflow: scroll; */
 }
 .content__text p {
   line-height: 30px;

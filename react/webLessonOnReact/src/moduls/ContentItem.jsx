@@ -49,8 +49,6 @@ const ContentItem = (props) => {
 
     res = firstText + lastText;
 
-    // console.log(str.indexOf("<s>"));
-    console.log("helo");
     return res;
   };
 

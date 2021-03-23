@@ -4,7 +4,9 @@ import { NavLink } from "react-router-dom";
 const MenuTheme = (props) => {
   return (
     <div className="theme__item">
-      <NavLink to={"/" + props.title}>{props.title}</NavLink>
+      <NavLink onClick={() => window.scrollTo(0, 0)} to={"/" + props.title}>
+        {props.title}
+      </NavLink>
     </div>
   );
 };

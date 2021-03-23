@@ -4,31 +4,56 @@ import MenuStep from "./menuStep";
 import MenuTheme from "./MenuTheme";
 
 const Menu = (props) => {
-  let themes = Object.keys(props.state);
+  let themes = Object.keys(props.state.themes);
 
   let drowThemes = themes.map((theme, index) => {
-    return <MenuTheme title={themes[index]} key={props.state[theme].id} />;
+    return (
+      <MenuTheme title={themes[index]} key={props.state.themes[theme].id} />
+    );
   });
 
   let drowSteps = themes.map((theme, index) => {
     return (
       <Route
         path={"/" + theme}
-        key={props.state[theme].id}
-        render={() => <MenuStep theme={props.state[themes[index]]} />}
+        key={props.state.themes[theme].id}
+        render={() => (
+          <MenuStep
+            theme={props.state.themes[themes[index]]}
+            search={props.state.newTextSearch}
+          />
+        )}
       />
     );
   });
+
+  let clickBtnHide = () => {
+    props.dispatch({ type: "HIDE_SHOW_MENU" });
+  };
+
+  let clickThemeSwither = () => {
+    props.dispatch({ type: "SWITH_COLOR_THEME" });
+  };
+
+  let searchEl = React.createRef();
+
+  let inputSearch = () => {
+    let text = searchEl.current.value;
+    props.dispatch({ type: "UPDATE_TEXT_SEARCH", newText: text });
+  };
 
   return (
     <div className="menu">
       <div className="theme">
         <ul className="theme__content">{drowThemes}</ul>
       </div>
-      <div className="step">
+      <div className={"step " + props.state.hideShowMenu}>
         <div className="step__wraper">
           <div className="step__top">
             <input
+              value={props.state.newTextSearch}
+              ref={searchEl}
+              onChange={inputSearch}
               placeholder="Поиск главы"
               type="text"
               className="search "
@@ -47,8 +72,11 @@ const Menu = (props) => {
               ></input>
             </div>
             <div className="menu__panel">
-              <button className={"switch "}></button>
-              <div className="btn__hide  btn-menu">
+              <button
+                onClick={clickThemeSwither}
+                className={"switch "}
+              ></button>
+              <button onClick={clickBtnHide} className="btn__hide  btn-menu">
                 <svg
                   width="27"
                   height="8"
@@ -61,7 +89,7 @@ const Menu = (props) => {
                     fill="#B9BBBE"
                   />
                 </svg>
-              </div>
+              </button>
             </div>
           </div>
 

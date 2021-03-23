@@ -5,12 +5,22 @@ const MenuStep = (props) => {
   let steps = [];
   let stepId = [];
 
-  themeItem.forEach((item, id) => {
-    if (item !== "id") {
-      steps.push(item);
-      stepId.push(id);
-    }
-  });
+  if (props.search === "") {
+    themeItem.forEach((item, id) => {
+      if (item !== "id") {
+        steps.push(item);
+        stepId.push(id);
+      }
+    });
+  } else {
+    let str = props.search;
+    themeItem.forEach((item, id) => {
+      if (item.includes(str)) {
+        steps.push(item);
+        stepId.push(id);
+      }
+    });
+  }
 
   let drowSteps = steps.map((step, index) => (
     <a href={"#" + stepId[index]} key={index} className="step__link">
