@@ -5,6 +5,7 @@ let initialState = {
   colorTheme: "white-theme",
   hideShowMenu: "",
   newTextSearch: "",
+  fontSize: 16,
 };
 
 let menuReducer = (state = initialState, action) => {
@@ -21,6 +22,10 @@ let menuReducer = (state = initialState, action) => {
 
     case "UPDATE_TEXT_SEARCH":
       state.newTextSearch = action.newText;
+      return state;
+
+    case "RESIZE_FONT":
+      state.fontSize = action.size;
       return state;
 
     default:

@@ -972,4 +972,20 @@ path {
     opacity: 1;
   }
 }
+
+.qsn {
+  display: flex;
+  flex-direction: column;
+}
+
+.qsn label {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.qsn label input {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */

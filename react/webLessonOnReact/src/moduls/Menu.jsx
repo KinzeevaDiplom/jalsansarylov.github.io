@@ -21,6 +21,7 @@ const Menu = (props) => {
           <MenuStep
             theme={props.state.themes[themes[index]]}
             search={props.state.newTextSearch}
+            themeName={theme}
           />
         )}
       />
@@ -42,6 +43,10 @@ const Menu = (props) => {
     props.dispatch({ type: "UPDATE_TEXT_SEARCH", newText: text });
   };
 
+  let handleChangeRange = (event) => {
+    props.dispatch({ type: "RESIZE_FONT", size: event.target.value });
+  };
+
   return (
     <div className="menu">
       <div className="theme">
@@ -61,9 +66,10 @@ const Menu = (props) => {
             <div className="size-rugulator">
               <p>Размер шрифта</p>{" "}
               <input
+                onChange={handleChangeRange}
                 id="range_size"
                 type="range"
-                value="16"
+                value={props.state.fontSize}
                 min="16"
                 max="22"
                 step="1"

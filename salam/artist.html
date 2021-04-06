@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artist</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content artist-block"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        let artist = localStorage.getItem("idArtist");
+        let iframe = `<iframe frameborder="0" style="border:none;width:100%;height:100vh;" width="100%" height="450" src="https://music.yandex.ru/iframe/#artist/${artist}">Слушайте <a href='https://music.yandex.ru/album/3087311'>Горгород</a> — <a href='https://music.yandex.ru/artist/249991'>Oxxxymiron</a> на Яндекс.Музыке</iframe>`;
+        $(".artist-block").html(iframe);
+      });
+    </script>
+  </body>
+</html>

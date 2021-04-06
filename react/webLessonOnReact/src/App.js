@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 function App(props) {
   return (
     <div
+      // выбор темы приложения
       className={
         "app " +
         props.state.menu.colorTheme +
@@ -16,7 +17,8 @@ function App(props) {
       <BrowserRouter>
         <div className="wraper">
           <Menu state={props.state.menu} dispatch={props.dispatch} />
-          <Content state={props.state.content} />
+
+          <Content state={props.state.content} dispatch={props.dispatch} />
         </div>
       </BrowserRouter>
     </div>

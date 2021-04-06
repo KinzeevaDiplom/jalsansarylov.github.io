@@ -1,8 +1,38 @@
 import React from "react";
 import ReactHtmlParser from "react-html-parser";
+import { Link, Route } from "react-router-dom";
+import Test from "./Test";
 
 const ContentItem = (props) => {
   let steps = Object.keys(props.theme);
+
+  let checkTest = () => {
+    let testExist = false;
+    steps.forEach((step) => {
+      if (step.includes("test")) testExist = true;
+    });
+    return testExist;
+  };
+
+  let createRouteTest = () => {
+    let res;
+    steps.forEach((step) => {
+      if (step.includes("test"))
+        res = (
+          <Route
+            path={"/" + props.themeName + "/test"}
+            render={() => (
+              <Test
+                stateTest={props.stateTest}
+                dispatch={props.dispatch}
+                test={props.theme[step]}
+              />
+            )}
+          />
+        );
+    });
+    return res;
+  };
 
   let parserImg = (str) => {
     let res = [];
@@ -25,29 +55,10 @@ const ContentItem = (props) => {
           sizeClassName = "img__middle";
       }
 
-      for (let i = 0; i < str.lastIndexOf(size); i++) {
-        imgLink += str[i];
-      }
+      imgLink = str.replace(size, "");
     } else imgLink = str;
+
     res.push(imgLink, sizeClassName);
-
-    return res;
-  };
-
-  let parserText = (str) => {
-    let res = "";
-    let firstText = "";
-    let lastText = "";
-
-    for (let i = 0; i < str.indexOf("<s>"); i++) {
-      firstText += str[i];
-    }
-
-    for (let i = str.indexOf("<s>") + 3; i < str.length; i++) {
-      lastText += str[i];
-    }
-
-    res = firstText + lastText;
 
     return res;
   };
@@ -55,7 +66,7 @@ const ContentItem = (props) => {
   let parserContent = steps.map((step, index) => {
     let res = [];
 
-    if (step !== "id") {
+    if (step !== "id" && !step.includes("test")) {
       res.push(
         <h2 id={index} className="content__title">
           {step}
@@ -73,24 +84,52 @@ const ContentItem = (props) => {
           if (str.includes("<s>")) {
             res.push(
               <div className="selection-text">
-                <p>{ReactHtmlParser(parserText(str))}</p>
+                <p>{ReactHtmlParser(str.replace("<s>", ""))}</p>
               </div>
             );
           } else res.push(<p>{ReactHtmlParser(str)}</p>);
         } else if (str.includes("<s>")) {
           res.push(
             <div className="selection-text">
-              <p>{parserText(str)}</p>
+              <p>{str.replace("<s>", "")}</p>
             </div>
           );
         } else res.push(<p>{str}</p>);
       });
+    } else if (step.includes("test")) {
+      let testName = step.replace("<test>", "");
+      res.push(
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/" + props.themeName + "/test"}
+        >
+          пройти тест "{testName}"
+        </Link>
+      );
     }
 
     return res;
   });
 
-  return <div className="content--text__item">{parserContent}</div>;
+  let drowContent = () => {
+    if (checkTest()) {
+      let res = [];
+
+      res.push(
+        <Route
+          exact
+          path={"/" + props.themeName}
+          render={() => parserContent}
+        />
+      );
+
+      res.push(createRouteTest());
+
+      return res;
+    } else return parserContent;
+  };
+
+  return <div className="content--text__item">{drowContent()}</div>;
 };
 
 export default ContentItem;

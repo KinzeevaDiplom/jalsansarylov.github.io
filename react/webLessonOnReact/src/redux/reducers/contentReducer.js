@@ -1,7 +1,60 @@
-import initialState from "../../content/theme1.json";
+import data from "../../content/theme1.json";
+
+let initialState = {
+  themes: data,
+  stateTest: {
+    checkAsk: [],
+    checkedId: [],
+    quantityQsn: 0,
+    btnFinishTest: true,
+    testResult: "",
+    ask: "",
+  },
+};
 
 const contentReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case "CHANGE_ASK":
+      state.stateTest.ask = action.ask;
+
+      if (state.stateTest.ask.includes("<s>"))
+        state.stateTest.checkAsk[action.name.replace("ask", "")] = true;
+      else state.stateTest.checkAsk[action.name.replace("ask", "")] = false;
+
+      state.stateTest.checkedId[action.name.replace("ask", "")] = action.id;
+
+      state.stateTest.quantityQsn = action.qty;
+
+      return state;
+
+    case "GIVE_RESULT_TEST":
+      let trueAsk = 0;
+
+      state.stateTest.btnFinishTest = false;
+
+      state.stateTest.checkAsk.forEach((ask) => {
+        if (ask === true) trueAsk++;
+      });
+
+      state.stateTest.testResult =
+        "правильных ответов: " + trueAsk + " из " + state.stateTest.quantityQsn;
+
+      state.stateTest.ask = "";
+      state.stateTest.checkedId = [];
+
+      return state;
+
+    case "RESTART_TEST":
+      state.stateTest.testResult = "";
+      state.stateTest.checkAsk = [];
+      state.stateTest.btnFinishTest = true;
+      state.stateTest.checkedId = [];
+
+      return state;
+
+    default:
+      return state;
+  }
 };
 
 export default contentReducer;
