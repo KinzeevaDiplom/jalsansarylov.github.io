@@ -39,10 +39,8 @@ const TestItem = (props) => {
   });
 
   return (
-    <div className="qsn">
-      <h2 className="content__title" id={props.id + 1}>
-        {props.qsn.qsn}
-      </h2>
+    <div className="qsn" style={props.show} id={props.id + 1}>
+      <h2 className="content__title">{props.qsn.qsn}</h2>
 
       {drowAsks}
     </div>

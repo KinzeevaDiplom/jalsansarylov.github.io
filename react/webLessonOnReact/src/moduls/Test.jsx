@@ -4,6 +4,7 @@ import TestItem from "./TestItem";
 const Test = (props) => {
   let qsns = Object.keys(props.test);
   let drow = true;
+  let showDeley = 0.3;
 
   let restartTest = () => {
     props.dispatch({ type: "RESTART_TEST" });
@@ -15,26 +16,34 @@ const Test = (props) => {
     props.dispatch({ type: "GIVE_RESULT_TEST" });
   };
 
-  let drowQsns = qsns.map((qsn, index) => (
-    <TestItem
-      stateTest={props.stateTest}
-      dispatch={props.dispatch}
-      qsn={props.test[qsn]}
-      id={index}
-      qsnQty={qsns.length}
-    />
-  ));
+  let drowQsns = qsns.map((qsn, index) => {
+    let show = {
+      animation: "fadeInUpBig",
+      animationDuration: showDeley + "s",
+    };
+    showDeley += 0.2;
+    return (
+      <TestItem
+        show={show}
+        stateTest={props.stateTest}
+        dispatch={props.dispatch}
+        qsn={props.test[qsn]}
+        id={index}
+        qsnQty={qsns.length}
+      />
+    );
+  });
 
   return (
     <div>
       {drow ? drowQsns : false}
 
       {props.stateTest.btnFinishTest ? (
-        <button onClick={takeResalt} className="btn-finish-test btn ">
+        <button onClick={takeResalt} className="btn-finish-test button ">
           завершить тест
         </button>
       ) : (
-        <button onClick={restartTest} className="btn-finish-test btn ">
+        <button onClick={restartTest} className="btn-finish-test button ">
           пройти заново
         </button>
       )}

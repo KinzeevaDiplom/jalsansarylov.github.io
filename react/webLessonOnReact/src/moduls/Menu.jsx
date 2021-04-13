@@ -2,13 +2,28 @@ import React from "react";
 import { Route } from "react-router";
 import MenuStep from "./menuStep";
 import MenuTheme from "./MenuTheme";
+import Preloader from "./Preloader";
 
 const Menu = (props) => {
+  const { isSettingWindow } = props.state;
+
   let themes = Object.keys(props.state.themes);
 
   let drowThemes = themes.map((theme, index) => {
+    let steps = Object.keys(props.state.themes[theme]);
+    let icon = "";
+    steps.forEach((step) => {
+      if (step === "icon") {
+        icon = props.state.themes[theme][step];
+      }
+    });
     return (
-      <MenuTheme title={themes[index]} key={props.state.themes[theme].id} />
+      <MenuTheme
+        icon={icon}
+        dispatch={props.dispatch}
+        title={themes[index]}
+        key={props.state.themes[theme].id}
+      />
     );
   });
 
@@ -43,12 +58,24 @@ const Menu = (props) => {
     props.dispatch({ type: "UPDATE_TEXT_SEARCH", newText: text });
   };
 
-  let handleChangeRange = (event) => {
+  let toggleFontSetting = () => {
+    props.dispatch({ type: "TOGGLE_DISPLAY_SETTING" });
+  };
+
+  let handleChangeSize = (event) => {
     props.dispatch({ type: "RESIZE_FONT", size: event.target.value });
+  };
+  let handleChangeLineHeight = (event) => {
+    props.dispatch({ type: "LINE_HEIGHT_FONT", size: event.target.value });
+  };
+  let handleChangeLetterSpacing = (event) => {
+    props.dispatch({ type: "LETTER_SPACING_FONT", size: event.target.value });
   };
 
   return (
     <div className="menu">
+      {props.state.preloaderActive ? <Preloader /> : ""}
+
       <div className="theme">
         <ul className="theme__content">{drowThemes}</ul>
       </div>
@@ -63,20 +90,61 @@ const Menu = (props) => {
               type="text"
               className="search "
             ></input>
-            <div className="size-rugulator">
-              <p>Размер шрифта</p>{" "}
-              <input
-                onChange={handleChangeRange}
-                id="range_size"
-                type="range"
-                value={props.state.fontSize}
-                min="16"
-                max="22"
-                step="1"
-                className="size-rugulator__sider"
-                // oninput="resizeText()"
-              ></input>
+            <div
+              className={
+                "settings-font " +
+                (isSettingWindow ? "settings-font__active" : "")
+              }
+            >
+              <button onClick={toggleFontSetting} className="settings-font-btn">
+                Настройка шрифта
+              </button>
+              <div className="settings-font__wrapper">
+                <div className="size-rugulator">
+                  <p>Размер шрифта</p>{" "}
+                  <input
+                    onChange={handleChangeSize}
+                    id="range_size"
+                    type="range"
+                    value={props.state.fontSetting.size}
+                    min="16"
+                    max="22"
+                    step="1"
+                    className="size-rugulator__sider"
+                    // oninput="resizeText()"
+                  ></input>
+                </div>
+                <div className="size-rugulator">
+                  <p>межсимвольный интервал</p>{" "}
+                  <input
+                    onChange={handleChangeLetterSpacing}
+                    id="range_size"
+                    type="range"
+                    value={props.state.fontSetting.letterSpacing}
+                    min="0"
+                    max="5"
+                    step="1"
+                    className="size-rugulator__sider"
+                    // oninput="resizeText()"
+                  ></input>
+                </div>
+                <div className="size-rugulator">
+                  <p>межсточный интервал</p>{" "}
+                  <input
+                    onChange={handleChangeLineHeight}
+                    id="range_size"
+                    type="range"
+                    value={props.state.fontSetting.lineHeight}
+                    min="30"
+                    max="60"
+                    step="1"
+                    className="size-rugulator__sider"
+                    // oninput="resizeText()"
+                  ></input>
+                </div>
+              </div>
             </div>
+
             <div className="menu__panel">
               <button
                 onClick={clickThemeSwither}

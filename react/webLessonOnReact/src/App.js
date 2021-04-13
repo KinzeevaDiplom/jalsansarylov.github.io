@@ -1,4 +1,6 @@
-import "./style.css";
+import "./css/animate.min.css";
+import "./css/font-awesome.min.css";
+import "./css/style.css";
 import Content from "./moduls/Content";
 import Menu from "./moduls/Menu";
 import { BrowserRouter } from "react-router-dom";
@@ -18,7 +20,11 @@ function App(props) {
         <div className="wraper">
           <Menu state={props.state.menu} dispatch={props.dispatch} />
 
-          <Content state={props.state.content} dispatch={props.dispatch} />
+          <Content
+            fontSetting={props.state.menu.fontSetting}
+            state={props.state.content}
+            dispatch={props.dispatch}
+          />
         </div>
       </BrowserRouter>
     </div>

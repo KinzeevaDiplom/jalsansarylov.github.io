@@ -5,6 +5,7 @@ import Test from "./Test";
 
 const ContentItem = (props) => {
   let steps = Object.keys(props.theme);
+  let showDeley = 0.3;
 
   let checkTest = () => {
     let testExist = false;
@@ -63,48 +64,76 @@ const ContentItem = (props) => {
     return res;
   };
 
-  let parserContent = steps.map((step, index) => {
+  let imgIncreaseShow = (event) => {
+    // console.log(event.target.src);
+    props.dispatch({ type: "IMG_INCREASE_SHOW", src: event.target.src });
+  };
+
+  let idStep = 0;
+
+  let parserContent = steps.map((step) => {
+    let stepItems = [];
     let res = [];
 
-    if (step !== "id" && !step.includes("test")) {
-      res.push(
-        <h2 id={index} className="content__title">
-          {step}
-        </h2>
-      );
-      props.theme[step].forEach((str) => {
+    if (step !== "id" && !step.includes("test") && step !== "icon") {
+      stepItems.push(<h2 className="content__title">{step}</h2>);
+      props.theme[step].forEach((str, imgId) => {
+        let show = {
+          animation: "fadeInUpBig",
+          animationDuration: showDeley + "s",
+        };
+        showDeley += 0.1;
+
         if (str.includes("img")) {
           let img = parserImg(str);
-          res.push(
-            <div className={img[1]}>
-              <img src={img[0]} alt="картинка"></img>
+          stepItems.push(
+            <div style={show} className={img[1]}>
+              <img
+                onClick={imgIncreaseShow}
+                src={img[0]}
+                id={"img" + imgId}
+                alt="картинка"
+              ></img>
             </div>
           );
         } else if (str.includes("<a") && str.includes("</a>")) {
           if (str.includes("<s>")) {
-            res.push(
-              <div className="selection-text">
+            stepItems.push(
+              <div style={show} className="selection-text">
                 <p>{ReactHtmlParser(str.replace("<s>", ""))}</p>
               </div>
             );
-          } else res.push(<p>{ReactHtmlParser(str)}</p>);
+          } else stepItems.push(<p style={show}>{ReactHtmlParser(str)}</p>);
         } else if (str.includes("<s>")) {
-          res.push(
-            <div className="selection-text">
+          stepItems.push(
+            <div style={show} className="selection-text">
               <p>{str.replace("<s>", "")}</p>
             </div>
           );
-        } else res.push(<p>{str}</p>);
+        } else stepItems.push(<p style={show}>{str}</p>);
       });
+
+      if (stepItems.length !== 0) {
+        res.push(
+          <div id={idStep} className="content__item">
+            {stepItems}
+          </div>
+        );
+        stepItems = [];
+        idStep++;
+      }
     } else if (step.includes("test")) {
       let testName = step.replace("<test>", "");
       res.push(
-        <Link
-          onClick={() => window.scrollTo(0, 0)}
-          to={"/" + props.themeName + "/test"}
-        >
-          пройти тест "{testName}"
-        </Link>
+        <div className="btn-test__wrapper">
+          <Link
+            className="btn-test button"
+            onClick={() => window.scrollTo(0, 0)}
+            to={"/" + props.themeName + "/test"}
+          >
+            test "{testName}"
+          </Link>
+        </div>
       );
     }
 
@@ -129,7 +158,7 @@ const ContentItem = (props) => {
     } else return parserContent;
   };
 
-  return <div className="content--text__item">{drowContent()}</div>;
+  return <div className="container">{drowContent()}</div>;
 };
 
 export default ContentItem;

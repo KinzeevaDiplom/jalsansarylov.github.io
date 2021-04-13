@@ -3,7 +3,19 @@ import { Redirect, Route } from "react-router-dom";
 import ContentItem from "./ContentItem";
 
 const Content = (props) => {
+  const { pathImg, isShowBigImg } = props.state;
   let themes = Object.keys(props.state.themes);
+
+  let imgIncreaseDisable = () => {
+    props.dispatch({ type: "IMG_INCREASE_DISABLE" });
+  };
+
+  let styleFont = {
+    fontSize: props.fontSetting.size + "px",
+    lineHeight: props.fontSetting.lineHeight + "px",
+    letterSpacing: props.fontSetting.letterSpacing + "px",
+  };
+
   let drowThemeContent = themes.map((theme) => {
     return (
       <Route
@@ -22,19 +34,19 @@ const Content = (props) => {
   });
 
   return (
-    <div className="content">
+    <div className="content" style={styleFont}>
+      <div
+        onClick={imgIncreaseDisable}
+        className={
+          "img-increase " + (isShowBigImg ? "img-increase__active" : "")
+        }
+      >
+        <img src={pathImg} alt="" />
+      </div>
+
       <div className="content__text">
-        <div className="container">
-          {drowThemeContent}
-          <Redirect from="/" to={themes[0]} />
-          {/* <a
-            // Target="_blank"
-            className="for__link"
-            href="http://www.elista-politeh.ru/"
-          >
-            Элистинский политехнический колледж
-          </a> */}
-        </div>
+        {drowThemeContent}
+        <Redirect from="/" to={themes[0]} />
       </div>
     </div>
   );

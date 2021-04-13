@@ -5,7 +5,14 @@ let initialState = {
   colorTheme: "white-theme",
   hideShowMenu: "",
   newTextSearch: "",
-  fontSize: 16,
+  isSettingWindow: false,
+  fontSetting: {
+    size: 16,
+    lineHeight: 30,
+    letterSpacing: 0,
+  },
+
+  preloaderActive: false,
 };
 
 let menuReducer = (state = initialState, action) => {
@@ -25,7 +32,19 @@ let menuReducer = (state = initialState, action) => {
       return state;
 
     case "RESIZE_FONT":
-      state.fontSize = action.size;
+      state.fontSetting.size = action.size;
+      return state;
+
+    case "LINE_HEIGHT_FONT":
+      state.fontSetting.lineHeight = action.size;
+      return state;
+
+    case "LETTER_SPACING_FONT":
+      state.fontSetting.letterSpacing = action.size;
+      return state;
+
+    case "TOGGLE_DISPLAY_SETTING":
+      state.isSettingWindow = !state.isSettingWindow;
       return state;
 
     default:

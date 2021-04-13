@@ -9,7 +9,10 @@ let initialState = {
     btnFinishTest: true,
     testResult: "",
     ask: "",
+    isShowBigImg: false,
   },
+  pathImg: "img/1.jpg",
+  preloaderStatus: "",
 };
 
 const contentReducer = (state = initialState, action) => {
@@ -50,6 +53,15 @@ const contentReducer = (state = initialState, action) => {
       state.stateTest.btnFinishTest = true;
       state.stateTest.checkedId = [];
 
+      return state;
+
+    case "IMG_INCREASE_DISABLE":
+      state.isShowBigImg = false;
+      return state;
+
+    case "IMG_INCREASE_SHOW":
+      state.isShowBigImg = true;
+      state.pathImg = action.src;
       return state;
 
     default:

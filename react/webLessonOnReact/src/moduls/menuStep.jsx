@@ -1,9 +1,10 @@
 import React from "react";
 import { Route } from "react-router";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 const MenuStep = (props) => {
   let themeItem = Object.keys(props.theme);
+  let showDeley = 0.3;
 
   let qsnQuantity = () => {
     let qsns;
@@ -23,14 +24,19 @@ const MenuStep = (props) => {
 
     if (props.search === "") {
       themeItem.forEach((item) => {
-        if (item !== "id" && !item.includes("test")) {
+        if (item !== "id" && !item.includes("test") && item !== "icon") {
           steps.push(item);
         }
       });
     } else {
       let str = props.search;
       themeItem.forEach((item, id) => {
-        if (item.includes(str) && !item.includes("test")) {
+        if (
+          item.includes(str) &&
+          !item.includes("test") &&
+          item !== "icon" &&
+          item !== "id"
+        ) {
           steps.push(item);
         }
       });
@@ -42,13 +48,21 @@ const MenuStep = (props) => {
   let drowQsn = () => {
     let res = [];
     for (let i = 1; i <= qsnQuantity(); i++) {
+      let show = {
+        animation: "fadeInUp",
+        animationDuration: showDeley + "s",
+      };
+      showDeley += 0.2;
+
       res.push(
         <Link
+          style={show}
           activeClass="active"
           smooth={true}
           offset={-70}
           duration={500}
           to={i}
+          spy={true}
           className="step__link"
         >
           Вопрос {i}
@@ -58,19 +72,27 @@ const MenuStep = (props) => {
     return res;
   };
 
-  let drowSteps = searchStep().map((step, index) => (
-    <Link
-      activeClass="active"
-      smooth={true}
-      offset={-70}
-      duration={500}
-      to={index + 1}
-      key={index}
-      className="step__link"
-    >
-      {step}
-    </Link>
-  ));
+  let drowSteps = searchStep().map((step, index) => {
+    let show = {
+      animation: "fadeInUp",
+      animationDuration: showDeley + "s",
+    };
+    showDeley += 0.2;
+    return (
+      <Link
+        style={show}
+        activeClass="active"
+        to={index}
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+        className="step__link"
+      >
+        {step}
+      </Link>
+    );
+  });
 
   let drowMenuItem = () => {
     let res = [];
