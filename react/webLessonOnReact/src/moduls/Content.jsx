@@ -3,27 +3,29 @@ import { Redirect, Route } from "react-router-dom";
 import ContentItem from "./ContentItem";
 
 const Content = (props) => {
-  const { pathImg, isShowBigImg } = props.state;
-  let themes = Object.keys(props.state.themes);
+  const { pathImg, isShowBigImg, themes } = props.state;
+  const { size, lineHeight, letterSpacing, fontFamily } = props.fontSetting;
 
-  let imgIncreaseDisable = () => {
-    props.dispatch({ type: "IMG_INCREASE_DISABLE" });
-  };
-
+  // стили для текста в content
   let styleFont = {
-    fontSize: props.fontSetting.size + "px",
-    lineHeight: props.fontSetting.lineHeight + "px",
-    letterSpacing: props.fontSetting.letterSpacing + "px",
+    fontFamily: fontFamily + " ,sans-serif",
+    fontSize: size + "px",
+    lineHeight: lineHeight + "px",
+    letterSpacing: letterSpacing + "px",
   };
 
-  let drowThemeContent = themes.map((theme) => {
+  // получаем массив с именами тем
+  let themesArr = Object.keys(themes);
+
+  // отрисовка элементов окна "темы"
+  let drowThemeContent = themesArr.map((theme, index) => {
     return (
       <Route
         path={"/" + theme}
-        key={props.state.themes[theme].id}
+        key={index}
         render={() => (
           <ContentItem
-            theme={props.state.themes[theme]}
+            theme={themes[theme]}
             themeName={theme}
             dispatch={props.dispatch}
             stateTest={props.state.stateTest}
@@ -32,6 +34,11 @@ const Content = (props) => {
       />
     );
   });
+
+  // выключение режима увеличенной картинки
+  let imgIncreaseDisable = () => {
+    props.dispatch({ type: "IMG_INCREASE_DISABLE" });
+  };
 
   return (
     <div className="content" style={styleFont}>
@@ -46,7 +53,7 @@ const Content = (props) => {
 
       <div className="content__text">
         {drowThemeContent}
-        <Redirect from="/" to={themes[0]} />
+        <Redirect from="/" to={themesArr[0]} />
       </div>
     </div>
   );

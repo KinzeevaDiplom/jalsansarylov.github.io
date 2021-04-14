@@ -7,9 +7,22 @@ let initialState = {
   newTextSearch: "",
   isSettingWindow: false,
   fontSetting: {
+    fontFamily: "Montserrat",
     size: 16,
     lineHeight: 30,
     letterSpacing: 0,
+    fonts: [
+      "Montserrat",
+      "Arial",
+      "Arial Black",
+      "Comic Sans MS",
+      "Courier New",
+      "Georgia",
+      "Impact",
+      "Times New Roman",
+      "Trebuchet MS",
+      "Verdana",
+    ],
   },
 
   preloaderActive: false,
@@ -45,6 +58,17 @@ let menuReducer = (state = initialState, action) => {
 
     case "TOGGLE_DISPLAY_SETTING":
       state.isSettingWindow = !state.isSettingWindow;
+      return state;
+
+    case "SETTING_RESET":
+      state.fontSetting.size = 16;
+      state.fontSetting.lineHeight = 30;
+      state.fontSetting.letterSpacing = 0;
+      state.fontSetting.fontFamily = "Montserrat";
+      return state;
+
+    case "FONT_SELECT":
+      state.fontSetting.fontFamily = action.font;
       return state;
 
     default:

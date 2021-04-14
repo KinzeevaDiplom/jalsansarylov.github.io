@@ -65,7 +65,6 @@ const ContentItem = (props) => {
   };
 
   let imgIncreaseShow = (event) => {
-    // console.log(event.target.src);
     props.dispatch({ type: "IMG_INCREASE_SHOW", src: event.target.src });
   };
 
@@ -75,7 +74,7 @@ const ContentItem = (props) => {
     let stepItems = [];
     let res = [];
 
-    if (step !== "id" && !step.includes("test") && step !== "icon") {
+    if (!step.includes("test") && step !== "icon") {
       stepItems.push(<h2 className="content__title">{step}</h2>);
       props.theme[step].forEach((str, imgId) => {
         let show = {
@@ -87,7 +86,7 @@ const ContentItem = (props) => {
         if (str.includes("img")) {
           let img = parserImg(str);
           stepItems.push(
-            <div style={show} className={img[1]}>
+            <div style={show} className={img[1] + " img-wrapper"}>
               <img
                 onClick={imgIncreaseShow}
                 src={img[0]}
@@ -97,13 +96,14 @@ const ContentItem = (props) => {
             </div>
           );
         } else if (str.includes("<a") && str.includes("</a>")) {
+          let newStr = str.replace("<a", "<a target='_blank'");
           if (str.includes("<s>")) {
             stepItems.push(
               <div style={show} className="selection-text">
-                <p>{ReactHtmlParser(str.replace("<s>", ""))}</p>
+                <p>{ReactHtmlParser(newStr.replace("<s>", ""))}</p>
               </div>
             );
-          } else stepItems.push(<p style={show}>{ReactHtmlParser(str)}</p>);
+          } else stepItems.push(<p style={show}>{ReactHtmlParser(newStr)}</p>);
         } else if (str.includes("<s>")) {
           stepItems.push(
             <div style={show} className="selection-text">

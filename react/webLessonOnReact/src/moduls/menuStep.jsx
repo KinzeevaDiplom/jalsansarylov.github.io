@@ -56,6 +56,7 @@ const MenuStep = (props) => {
 
       res.push(
         <Link
+          title={"Вопрос" + i}
           style={show}
           activeClass="active"
           smooth={true}
@@ -80,6 +81,8 @@ const MenuStep = (props) => {
     showDeley += 0.2;
     return (
       <Link
+        key={index}
+        title={step}
         style={show}
         activeClass="active"
         to={index}
@@ -114,35 +117,6 @@ const MenuStep = (props) => {
 
     return res;
   };
-
-  // let drowQsn =
-  // let drowSteps = steps.map((step, index) => {
-  //   let res = [];
-
-  //   res.push(
-  //     <Route
-  //       exact
-  //       path={"/" + props.themeName}
-  //       render={() => (
-  //         <a href={"#" + stepId[index]} key={index} className="step__link">
-  //           {step}
-  //         </a>
-  //       )}
-  //     />
-  //   );
-  //   res.push(
-  //     <Route
-  //       path="/test"
-  //       render={() => (
-  //         <a href={"#" + stepId[index]} key={index} className="step__link">
-  //           {/* {step} */}
-  //         </a>
-  //       )}
-  //     />
-  //   );
-
-  //   return res;
-  // });
 
   return <div className="step__chapter fadeIn">{drowMenuItem()}</div>;
 };

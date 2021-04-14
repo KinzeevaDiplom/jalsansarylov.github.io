@@ -2,46 +2,70 @@ import React from "react";
 import { Route } from "react-router";
 import MenuStep from "./menuStep";
 import MenuTheme from "./MenuTheme";
-import Preloader from "./Preloader";
 
 const Menu = (props) => {
-  const { isSettingWindow } = props.state;
+  const {
+    isSettingWindow,
+    themes,
+    fontSetting,
+    hideShowMenu,
+    newTextSearch,
+  } = props.state;
 
-  let themes = Object.keys(props.state.themes);
+  let themesArr = Object.keys(themes);
 
-  let drowThemes = themes.map((theme, index) => {
-    let steps = Object.keys(props.state.themes[theme]);
+  let drowThemes = themesArr.map((theme, index) => {
+    let steps = Object.keys(themes[theme]);
     let icon = "";
     steps.forEach((step) => {
       if (step === "icon") {
-        icon = props.state.themes[theme][step];
+        icon = themes[theme][step];
       }
     });
     return (
       <MenuTheme
         icon={icon}
         dispatch={props.dispatch}
-        title={themes[index]}
-        key={props.state.themes[theme].id}
+        title={themesArr[index]}
+        key={index}
       />
     );
   });
 
-  let drowSteps = themes.map((theme, index) => {
+  let drowSteps = themesArr.map((theme, index) => {
     return (
       <Route
         path={"/" + theme}
-        key={props.state.themes[theme].id}
+        key={index}
         render={() => (
           <MenuStep
-            theme={props.state.themes[themes[index]]}
-            search={props.state.newTextSearch}
+            theme={themes[themesArr[index]]}
+            search={newTextSearch}
             themeName={theme}
           />
         )}
       />
     );
   });
+
+  let fontOptionDrow = () => {
+    let res = [];
+    let arr = fontSetting.fonts;
+
+    arr.forEach((font, index) => {
+      let stylefontFamaly = {
+        fontFamily: font,
+      };
+
+      res.push(
+        <option key={index} style={stylefontFamaly}>
+          {font}
+        </option>
+      );
+    });
+
+    return res;
+  };
 
   let clickBtnHide = () => {
     props.dispatch({ type: "HIDE_SHOW_MENU" });
@@ -51,10 +75,8 @@ const Menu = (props) => {
     props.dispatch({ type: "SWITH_COLOR_THEME" });
   };
 
-  let searchEl = React.createRef();
-
-  let inputSearch = () => {
-    let text = searchEl.current.value;
+  let inputSearch = (event) => {
+    let text = event.target.value;
     props.dispatch({ type: "UPDATE_TEXT_SEARCH", newText: text });
   };
 
@@ -72,19 +94,25 @@ const Menu = (props) => {
     props.dispatch({ type: "LETTER_SPACING_FONT", size: event.target.value });
   };
 
+  let settingReset = () => {
+    props.dispatch({ type: "SETTING_RESET" });
+  };
+
+  let fontSelect = (event) => {
+    props.dispatch({ type: "FONT_SELECT", font: event.target.value });
+  };
+
   return (
     <div className="menu">
-      {props.state.preloaderActive ? <Preloader /> : ""}
-
       <div className="theme">
         <ul className="theme__content">{drowThemes}</ul>
       </div>
-      <div className={"step " + props.state.hideShowMenu}>
+      <div className={"step " + hideShowMenu}>
         <div className="step__wraper">
           <div className="step__top">
             <input
-              value={props.state.newTextSearch}
-              ref={searchEl}
+              title="пойск по главам"
+              value={newTextSearch}
               onChange={inputSearch}
               placeholder="Поиск главы"
               type="text"
@@ -96,17 +124,31 @@ const Menu = (props) => {
                 (isSettingWindow ? "settings-font__active" : "")
               }
             >
-              <button onClick={toggleFontSetting} className="settings-font-btn">
+              <button
+                title="настройть шрифт"
+                onClick={toggleFontSetting}
+                className="settings-font-btn"
+              >
                 Настройка шрифта
               </button>
               <div className="settings-font__wrapper">
+                <select
+                  value={fontSetting.fontFamily}
+                  className="select-font"
+                  title="выберите шрифт"
+                  onChange={fontSelect}
+                >
+                  {fontOptionDrow()}
+                </select>
+
                 <div className="size-rugulator">
-                  <p>Размер шрифта</p>{" "}
+                  <p>Размер шрифта</p>
                   <input
+                    title={fontSetting.size}
                     onChange={handleChangeSize}
                     id="range_size"
                     type="range"
-                    value={props.state.fontSetting.size}
+                    value={fontSetting.size}
                     min="16"
                     max="22"
                     step="1"
@@ -115,12 +157,13 @@ const Menu = (props) => {
                   ></input>
                 </div>
                 <div className="size-rugulator">
-                  <p>межсимвольный интервал</p>{" "}
+                  <p>межсимвольный интервал</p>
                   <input
+                    title={fontSetting.letterSpacing}
                     onChange={handleChangeLetterSpacing}
                     id="range_size"
                     type="range"
-                    value={props.state.fontSetting.letterSpacing}
+                    value={fontSetting.letterSpacing}
                     min="0"
                     max="5"
                     step="1"
@@ -131,10 +174,11 @@ const Menu = (props) => {
                 <div className="size-rugulator">
                   <p>межсточный интервал</p>{" "}
                   <input
+                    title={fontSetting.lineHeight}
                     onChange={handleChangeLineHeight}
                     id="range_size"
                     type="range"
-                    value={props.state.fontSetting.lineHeight}
+                    value={fontSetting.lineHeight}
                     min="30"
                     max="60"
                     step="1"
@@ -142,15 +186,27 @@ const Menu = (props) => {
                     // oninput="resizeText()"
                   ></input>
                 </div>
+                <button
+                  title="выставит значение по умолчанию"
+                  onClick={settingReset}
+                  className="settings-standart"
+                >
+                  по умолчанию
+                </button>
               </div>
             </div>
 
             <div className="menu__panel">
               <button
+                title="меняет цветовую тему"
                 onClick={clickThemeSwither}
                 className={"switch "}
               ></button>
-              <button onClick={clickBtnHide} className="btn__hide  btn-menu">
+              <button
+                title="скрывает/расскрывает меню"
+                onClick={clickBtnHide}
+                className="btn__hide  btn-menu"
+              >
                 <svg
                   width="27"
                   height="8"
