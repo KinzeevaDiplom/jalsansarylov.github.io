@@ -189,7 +189,7 @@ path {
 }
 
 .step--hide .container {
-  max-width: 1500px;
+  max-width: 1400px;
 }
 
 .menu .step--hide {
@@ -380,6 +380,7 @@ path {
   cursor: pointer;
 }
 .content__text p {
+  margin-top:1rem;
   text-align: justify;
   text-indent: 20px;
 }
@@ -413,12 +414,11 @@ path {
   color: var(--mainColor);
 }
 .selection-text {
-  padding: 47px 0;
-  margin-bottom: 1rem;
+  padding: 1rem 0;
 }
 .selection-text p {
   position: relative;
-  margin-left: 63px;
+  margin-left: 1.5rem;
 }
 .selection-text p::before {
   content: "";
@@ -426,7 +426,7 @@ path {
   width: 2px;
   background-color: var(--extraColor);
   position: absolute;
-  left: -63px;
+  left: -1.5rem;
   top: 0;
   border-radius: 10px;
 }
@@ -810,16 +810,18 @@ path {
   cursor: pointer;
   transition: all 0.3s;
   border-radius: 10px;
+  color: var(--mainColor);
 }
 
 .settings-standart:hover {
   background-color: var(--extraColor);
-  color: white;
   border: 1px solid var(--extraColor);
+  color: white;
 }
 
 .select-font {
   margin-top: 1rem;
+  color: var(--mainColor);
   display: block;
   padding: 0.6em 1.4em 0.5em 0.8em;
   width: 100%;

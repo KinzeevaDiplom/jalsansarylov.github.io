@@ -4,39 +4,62 @@ import { Link, Route } from "react-router-dom";
 import Test from "./Test";
 
 const ContentItem = (props) => {
-  let steps = Object.keys(props.theme);
+  let imgId = 0;
+  let idStep = 0;
   let showDeley = 0.3;
+  let themeItem = Object.keys(props.theme);
+  let getStepNames = () => {
+    let stepNames = [];
+    themeItem.forEach((item) => {
+      if (!item.includes("test") && item !== "icon") {
+        stepNames.push(item);
+      }
+    });
+    return stepNames;
+  };
+  // dispatch функции
+  let imgIncreaseShow = (event) => {
+    props.dispatch({ type: "IMG_INCREASE_SHOW", src: event.target.src });
+  };
 
+  // функция проверки наличия теста на странице
   let checkTest = () => {
-    let testExist = false;
-    steps.forEach((step) => {
-      if (step.includes("test")) testExist = true;
+    let isTest = false;
+    themeItem.forEach((step) => {
+      if (step.includes("test")) isTest = step;
     });
-    return testExist;
+    return isTest;
+  };
+  // нарисовать кнопку тестов
+  let drowBtnTest = () => {
+    let testName = checkTest().replace("<test>", "");
+
+    return (
+      <div className="btn-test__wrapper">
+        <Link
+          className="btn-test button"
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/" + props.themeName + "/test"}
+        >
+          test "{testName}"
+        </Link>
+      </div>
+    );
   };
 
-  let createRouteTest = () => {
-    let res;
-    steps.forEach((step) => {
-      if (step.includes("test"))
-        res = (
-          <Route
-            path={"/" + props.themeName + "/test"}
-            render={() => (
-              <Test
-                stateTest={props.stateTest}
-                dispatch={props.dispatch}
-                test={props.theme[step]}
-              />
-            )}
-          />
-        );
-    });
-    return res;
+  // функция для садания анимации при появлении
+  let animationIncrement = () => {
+    let show = {
+      animation: "fadeInUpBig",
+      animationDuration: showDeley + "s",
+    };
+    showDeley += 0.1;
+    return show;
   };
 
-  let parserImg = (str) => {
-    let res = [];
+  // парсеры контента
+  let imgParse = (str, key) => {
+    imgId++;
     let size = "";
     let sizeClassName = "img__middle";
     let imgLink = "";
@@ -59,87 +82,96 @@ const ContentItem = (props) => {
       imgLink = str.replace(size, "");
     } else imgLink = str;
 
-    res.push(imgLink, sizeClassName);
+    return (
+      <div key={key} style={animationIncrement()} className={sizeClassName}>
+        <img
+          onClick={imgIncreaseShow}
+          src={imgLink}
+          id={"img" + imgId}
+          alt="картинка"
+        ></img>
+      </div>
+    );
+  };
+  let linkParce = (str, key) => {
+    let res;
+    let newStr = str.replace("<a", "<a target='_blank'");
+
+    if (str.includes("<s>")) {
+      res = (
+        <div key={key} style={animationIncrement()} className="selection-text">
+          <p>{ReactHtmlParser(newStr.replace("<s>", ""))}</p>
+        </div>
+      );
+    } else
+      res = (
+        <p key={key} style={animationIncrement()}>
+          {ReactHtmlParser(newStr)}
+        </p>
+      );
 
     return res;
   };
-
-  let imgIncreaseShow = (event) => {
-    props.dispatch({ type: "IMG_INCREASE_SHOW", src: event.target.src });
+  let specialTextParse = (str, key) => {
+    return (
+      <div key={key} style={animationIncrement()} className="selection-text">
+        <p>{str.replace("<s>", "")}</p>
+      </div>
+    );
   };
 
-  let idStep = 0;
-
-  let parserContent = steps.map((step) => {
+  // разбивает данные разделов на html элементы
+  let stepItemsParse = (stepName, keyItem) => {
     let stepItems = [];
-    let res = [];
 
-    if (!step.includes("test") && step !== "icon") {
-      stepItems.push(<h2 className="content__title">{step}</h2>);
-      props.theme[step].forEach((str, imgId) => {
-        let show = {
-          animation: "fadeInUpBig",
-          animationDuration: showDeley + "s",
-        };
-        showDeley += 0.1;
-
-        if (str.includes("img")) {
-          let img = parserImg(str);
-          stepItems.push(
-            <div style={show} className={img[1] + " img-wrapper"}>
-              <img
-                onClick={imgIncreaseShow}
-                src={img[0]}
-                id={"img" + imgId}
-                alt="картинка"
-              ></img>
-            </div>
-          );
-        } else if (str.includes("<a") && str.includes("</a>")) {
-          let newStr = str.replace("<a", "<a target='_blank'");
-          if (str.includes("<s>")) {
-            stepItems.push(
-              <div style={show} className="selection-text">
-                <p>{ReactHtmlParser(newStr.replace("<s>", ""))}</p>
-              </div>
-            );
-          } else stepItems.push(<p style={show}>{ReactHtmlParser(newStr)}</p>);
-        } else if (str.includes("<s>")) {
-          stepItems.push(
-            <div style={show} className="selection-text">
-              <p>{str.replace("<s>", "")}</p>
-            </div>
-          );
-        } else stepItems.push(<p style={show}>{str}</p>);
-      });
-
-      if (stepItems.length !== 0) {
-        res.push(
-          <div id={idStep} className="content__item">
-            {stepItems}
-          </div>
+    props.theme[stepName].forEach((str, key) => {
+      if (str.includes("img/")) {
+        stepItems.push(imgParse(str, "el" + keyItem + key));
+      } else if (str.includes("<a") && str.includes("</a>")) {
+        stepItems.push(linkParce(str, "el" + keyItem + key));
+      } else if (str.includes("<s>")) {
+        stepItems.push(specialTextParse(str, "el" + keyItem + key));
+      } else
+        stepItems.push(
+          <p key={"el" + keyItem + key} style={animationIncrement()}>
+            {str}
+          </p>
         );
-        stepItems = [];
-        idStep++;
-      }
-    } else if (step.includes("test")) {
-      let testName = step.replace("<test>", "");
+    });
+
+    return stepItems;
+  };
+  // разбивает входящие данные темы на разделы (content__item)
+  let contentParse = () => {
+    let res = [];
+    getStepNames().forEach((stepName, key) => {
+      let contentItems = [];
+
+      contentItems.push(
+        <h2 key={key} className="content__title">
+          {stepName}
+        </h2>
+      );
+      contentItems.push(stepItemsParse(stepName, key));
+
       res.push(
-        <div className="btn-test__wrapper">
-          <Link
-            className="btn-test button"
-            onClick={() => window.scrollTo(0, 0)}
-            to={"/" + props.themeName + "/test"}
-          >
-            test "{testName}"
-          </Link>
+        <div id={idStep} className="content__item">
+          {contentItems}
         </div>
       );
+
+      contentItems = [];
+      idStep++;
+    });
+
+    if (checkTest()) {
+      res.push(drowBtnTest());
     }
 
     return res;
-  });
+  };
 
+  // рисует содержимое контента в зависимости от содержания в ней теста
   let drowContent = () => {
     if (checkTest()) {
       let res = [];
@@ -148,14 +180,25 @@ const ContentItem = (props) => {
         <Route
           exact
           path={"/" + props.themeName}
-          render={() => parserContent}
+          render={() => contentParse()}
         />
       );
 
-      res.push(createRouteTest());
+      res.push(
+        <Route
+          path={"/" + props.themeName + "/test"}
+          render={() => (
+            <Test
+              stateTest={props.stateTest}
+              dispatch={props.dispatch}
+              test={props.theme[checkTest()]}
+            />
+          )}
+        />
+      );
 
       return res;
-    } else return parserContent;
+    } else return contentParse();
   };
 
   return <div className="container">{drowContent()}</div>;
