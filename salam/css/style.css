@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  /* background: url(/IMG/header-bg.jpg) no-repeat center top; */
+  background-color: blue;
+  background-size: cover;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  width: 100%;
+}
+.header-top {
+  display: flex;
+  padding: 10px 15px;
+  justify-content: space-between;
+  background-color: #24272e;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0px 5px 8px #c71aa4c2;
+
+  border-top: 3px solid rgb(124, 124, 124);
+  border-bottom: 3px solid rgb(124, 124, 124);
+}
+
+.menu-link {
+  letter-spacing: 0.1em;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  border-radius: 0px 15px 0px 15px;
+  font-weight: 500;
+}
+.menu-link:hover {
+  background-color: #c71aa4;
+  box-shadow: 0px 5px 15px #813fd3;
+}
+
+.icon__item {
+  font-size: 13px;
+  background-color: #24272e;
+  border-radius: 5px;
+  box-shadow: 0px 2px 30px #c71aa4c2;
+  color: #c71aa4;
+  padding: 0.7em 1em;
+  display: inline-block;
+  border-top: 2px solid rgb(124, 124, 124);
+  border-bottom: 2px solid rgb(124, 124, 124);
+}
+.wrapper-icon {
+  padding: 15px 0px 10px 0px;
+}
+
+.header__slider {
+  margin-top: 1.5rem;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.slider__item {
+  min-width: 0;
+  min-height: 570px;
+  display: flex;
+  justify-content: space-between;
+  background-size: cover;
+  color: white;
+  overflow: hidden;
+}
+.slider__item img {
+  width: 100%;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+.container-content .track-list {
+  border-radius: 5px;
+  overflow: hidden;
+  width: 65%;
+}
+
+.container-content .side-bar {
+  /* display: flex; */
+  width: 30%;
+}
+
+.container-content button {
+  display: flex;
+  width: 100%;
+  padding: 1em;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.side-bar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+.side-bar span {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.artist-block {
+  border-radius: 5px;
+  overflow: hidden;
+}

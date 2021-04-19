@@ -5,20 +5,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/slick-theme.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <button onclick="playListCreate(249991)">oxxxymiron</button>
-    <button onclick="playListCreate(3426942)">ATL</button>
+    <header class="header">
+      <div class="container">
+        <!-- иконки -->
+        <div class="wrapper-icon">
+          <a href="#" class="icon__item"
+            ><i class="fa fa-vk" aria-hidden="true"></i
+          ></a>
+          <a href="#" class="icon__item"
+            ><i class="fa fa-instagram" aria-hidden="true"></i
+          ></a>
+          <a href="#" class="icon__item"
+            ><i class="fa fa-facebook-square" aria-hidden="true"></i
+          ></a>
+          <a href="#" class="icon__item"
+            ><i class="fa fa-youtube" aria-hidden="true"></i
+          ></a>
+        </div>
+        <!-- меню и лого -->
+        <div class="header-top">
+          <a href="index.html" class="logo">
+            <img src="IMG/Без имени-1.png" height="80" alt="" />
+          </a>
+          <nav class="menu">
+            <a href="#" class="menu-link">rap</a>
+            <a href="#" class="menu-link">rock</a>
+            <a href="#" class="menu-link">pop</a>
+            <a href="#" class="menu-link">dubstep</a>
+            <a href="#" class="menu-link">metal</a>
+          </nav>
+        </div>
+        <!-- интро -->
+        <div class="header__slider">
+          <div class="">
+            <div class="slider__item">
+              <img src="img/oxxxymiton-bg.jpg" alt="" />
+            </div>
+          </div>
+          <div class="">
+            <div class="slider__item">
+              <img src="img/pyro-bg.jpg" alt="" />
+            </div>
+          </div>
+          <div class="">
+            <div class="slider__item">
+              <img src="img/noize-bg.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="play-list">
+      <div class="container container-content">
+        <div class="track-list">
+          <iframe
+            frameborder="0"
+            style="border: none; width: 100%; height: 52vh"
+            width="100%"
+            height="450"
+            src="https://music.yandex.ru/iframe/#playlist/yamusic-top/1076"
+            >Слушайте
+            <a href="https://music.yandex.ru/users/yamusic-top/playlists/1076"
+              >Чарт Яндекс.Музыки</a
+            >
+            —
+            <!-- <a href="https://music.yandex.ru/users/yamusic-top"
+              >Яндекс.Музыка</a
+            > -->
+            на Яндекс.Музыке</iframe
+          >
+        </div>
+        <div class="side-bar">
+          <button onclick="playListCreate(249991)"> <img src="https://avatars.yandex.net/get-music-content/118603/a39a9aaf.p.249991/200x200"  alt=""> <span> Oxxxymiron </span></button>
+          <button onclick="playListCreate(249991)"> <img src="https://avatars.yandex.net/get-music-content/2424959/e9d43d6b.p.3426942/200x200"  alt=""> <span> ATL </span></button>
+          <button onclick="playListCreate(249991)"> <img src="https://avatars.yandex.net/get-music-content/2424959/e9d43d6b.p.3426942/200x200"  alt=""> <span> ATL </span></button>
+          <button onclick="playListCreate(249991)"> <img src="https://avatars.yandex.net/get-music-content/2424959/e9d43d6b.p.3426942/200x200"  alt=""> <span> ATL </span></button>
+          <button onclick="playListCreate(249991)"> <img src="https://avatars.yandex.net/get-music-content/2424959/e9d43d6b.p.3426942/200x200"  alt=""> <span> ATL </span></button>
+          <button onclick="playListCreate(249991)"> <img src="https://avatars.yandex.net/get-music-content/2424959/e9d43d6b.p.3426942/200x200"  alt=""> <span> ATL </span></button>
+          </div>
+      </div>
+    </section>
+    <!-- https://avatars.yandex.net/get-music-content/2424959/e9d43d6b.p.3426942/200x200
+    https://avatars.yandex.net/get-music-content/118603/a39a9aaf.p.249991/200x200 -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script>
-      $(document).ready(function () {
-        let playListCreate = (artist) => {
-          localStorage.setItem("idArtist", artist);
-          document.location.href = "artist.html";
-        };
-      });
+      let playListCreate = (artist) => {
+        localStorage.setItem("idArtist", artist);
+        document.location.href = "artist.html";
+      };
     </script>
+    <script src="js/main.js"></script>
   </body>
 </html>
