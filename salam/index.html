@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="css/preloader.css" />
   </head>
   <body>
-    <div id="preloader">
-      <div id="loader"></div>
+    <div class="preloader">
+      <div class="loader"></div>
     </div>
 
     <header class="header">
@@ -54,16 +54,16 @@
         <!-- интро -->
         <div class="header__slider">
           <div class="">
-            <div class="slider__item">
+            <div ondblclick="playListCreate(249991)" class="slider__item">
               <img src="img/oxxxymiton-bg.jpg" alt="" />
             </div>
           </div>
-          <div class="">
+          <div ondblclick="playListCreate(5313769)" class="">
             <div class="slider__item">
               <img src="img/pyro-bg.jpg" alt="" />
             </div>
           </div>
-          <div class="">
+          <div ondblclick="playListCreate(160970)" class="">
             <div class="slider__item">
               <img src="img/noize-bg.jpg" alt="" />
             </div>
@@ -143,12 +143,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script>
-      let playListCreate = (artist) => {
-        localStorage.setItem("idArtist", artist);
-        document.location.href = "artist.html";
-      };
-    </script>
     <script src="js/main.js"></script>
   </body>
 </html>
