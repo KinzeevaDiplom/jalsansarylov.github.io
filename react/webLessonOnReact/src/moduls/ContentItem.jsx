@@ -35,13 +35,14 @@ const ContentItem = (props) => {
     let testName = checkTest().replace("<test>", "");
 
     return (
-      <div className="btn-test__wrapper">
+      <div style={animationIncrement()} className="btn-test__wrapper">
         <Link
+          id="test"
           className="btn-test button"
           onClick={() => window.scrollTo(0, 0)}
           to={"/" + props.themeName + "/test"}
         >
-          test "{testName}"
+          тест {testName}
         </Link>
       </div>
     );
@@ -53,7 +54,7 @@ const ContentItem = (props) => {
       animation: "fadeInUpBig",
       animationDuration: showDeley + "s",
     };
-    showDeley += 0.1;
+    if (showDeley < 1) showDeley += 0.1;
     return show;
   };
 
@@ -119,6 +120,25 @@ const ContentItem = (props) => {
       </div>
     );
   };
+  let youtubeVideoParse = (str, key) => {
+    let link = "";
+    for (let i = str.indexOf("=") + 1; i < str.length; i++) {
+      link += str[i];
+    }
+    return (
+      <div key={key} style={animationIncrement()} className="youtube-video">
+        <iframe
+          width="100%"
+          height="100%"
+          src={"https://www.youtube.com/embed/" + link}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    );
+  };
 
   // разбивает данные разделов на html элементы
   let stepItemsParse = (stepName, keyItem) => {
@@ -131,6 +151,8 @@ const ContentItem = (props) => {
         stepItems.push(linkParce(str, "el" + keyItem + key));
       } else if (str.includes("<s>")) {
         stepItems.push(specialTextParse(str, "el" + keyItem + key));
+      } else if (str.includes("www.youtube.com/")) {
+        stepItems.push(youtubeVideoParse(str, "el" + keyItem + key));
       } else
         stepItems.push(
           <p key={"el" + keyItem + key} style={animationIncrement()}>
@@ -148,7 +170,7 @@ const ContentItem = (props) => {
       let contentItems = [];
 
       contentItems.push(
-        <h2 key={key} className="content__title">
+        <h2 style={animationIncrement()} key={key} className="content__title">
           {stepName}
         </h2>
       );

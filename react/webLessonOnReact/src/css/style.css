@@ -244,7 +244,7 @@ path {
   border-radius: 100%;
   overflow: hidden;
   color: rgba(255, 255, 255, 0);
-  margin: 1rem 0;
+  margin: 0.8rem 0;
   background-color: gray;
   cursor: pointer;
   box-shadow: -2px 3px 2px rgba(0, 0, 0, 0.37);
@@ -380,7 +380,7 @@ path {
   cursor: pointer;
 }
 .content__text p {
-  margin-top:1rem;
+  margin-top: 1rem;
   text-align: justify;
   text-indent: 20px;
 }
@@ -395,6 +395,7 @@ path {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: border 1s;
 }
 .content__text .content__title {
   text-transform: uppercase;
@@ -832,4 +833,11 @@ path {
   appearance: none;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
+}
+
+.youtube-video {
+  width: 800px;
+  height: 600px;
+  padding: 47px 0;
+  margin: 0px auto;
 }
