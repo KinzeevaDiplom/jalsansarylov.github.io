@@ -9,8 +9,6 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 body {
-  /* background: url(/IMG/header-bg.jpg) no-repeat center top; */
-  background-color: blue;
   background-size: cover;
 }
 
@@ -26,6 +24,7 @@ body {
 
 .header {
   width: 100%;
+  z-index: 100;
 }
 .header-top {
   display: flex;
@@ -149,4 +148,25 @@ section {
 .preloader-disable {
   opacity: 0;
   visibility: hidden;
+}
+#particles-js {
+  z-index: -3;
+}
+
+.eapps-social-feed-65393f27-4f70-4299-bd06-aa618bff57b8-custom-css-hook
+  .gtxmcM {
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.elfsight-app-65393f27-4f70-4299-bd06-aa618bff57b8 {
+  background-color: rgba(255, 0, 0, 0);
+}
+
+#eapps-social-feed-65393f27-4f70-4299-bd06-aa618bff57b8 {
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.WidgetBackground__Background-e8l9qy-1 {
+  /* background-color: rgba(255, 0, 0, 0); */
+  position: relative;
 }

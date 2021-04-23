@@ -1,7 +1,7 @@
 $(document).ready(() => {
   $(".header__slider").slick({
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 5000,
   });
 
   $("iframe").on("load", function () {
