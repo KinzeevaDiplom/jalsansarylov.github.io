@@ -3,8 +3,15 @@ import { Route } from "react-router";
 import { Link } from "react-scroll";
 
 const MenuStep = (props) => {
+  let key = 0;
   let themeItem = Object.keys(props.theme);
   let showDeley = 0.3;
+
+  // функция для уникального key
+  let getKey = () => {
+    key++;
+    return key;
+  };
 
   let qsnQuantity = () => {
     let qsns;
@@ -30,7 +37,7 @@ const MenuStep = (props) => {
       });
     } else {
       let str = props.search;
-      themeItem.forEach((item, id) => {
+      themeItem.forEach((item) => {
         if (
           item.includes(str) &&
           !item.includes("test") &&
@@ -81,7 +88,7 @@ const MenuStep = (props) => {
     showDeley += 0.2;
     return (
       <Link
-        key={index}
+        key={getKey()}
         title={step}
         style={show}
         activeClass="active"

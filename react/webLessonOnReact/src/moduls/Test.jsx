@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 import TestItem from "./TestItem";
 
 const Test = (props) => {
@@ -38,17 +39,25 @@ const Test = (props) => {
     <div>
       {drow ? drowQsns : false}
 
+      <div className="test-result">{props.stateTest.testResult}</div>
+
       {props.stateTest.btnFinishTest ? (
         <button onClick={takeResalt} className="btn-finish-test button ">
           завершить тест
         </button>
       ) : (
-        <button onClick={restartTest} className="btn-finish-test button ">
+        <Link
+          smooth={true}
+          offset={-70}
+          duration={500}
+          to={1}
+          spy={true}
+          onClick={restartTest}
+          className="btn-finish-test button "
+        >
           пройти заново
-        </button>
+        </Link>
       )}
-
-      <div className="test-result">{props.stateTest.testResult}</div>
     </div>
   );
 };

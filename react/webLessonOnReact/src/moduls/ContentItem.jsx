@@ -4,6 +4,7 @@ import { Link, Route } from "react-router-dom";
 import Test from "./Test";
 
 const ContentItem = (props) => {
+  let key = 0;
   let imgId = 0;
   let idStep = 0;
   let showDeley = 0.3;
@@ -17,6 +18,13 @@ const ContentItem = (props) => {
     });
     return stepNames;
   };
+
+  // функция для уникального key
+  let getKey = () => {
+    key++;
+    return key;
+  };
+
   // dispatch функции
   let imgIncreaseShow = (event) => {
     props.dispatch({ type: "IMG_INCREASE_SHOW", src: event.target.src });
@@ -35,7 +43,11 @@ const ContentItem = (props) => {
     let testName = checkTest().replace("<test>", "");
 
     return (
-      <div style={animationIncrement()} className="btn-test__wrapper">
+      <div
+        key={getKey()}
+        style={animationIncrement()}
+        className="btn-test__wrapper"
+      >
         <Link
           id="test"
           className="btn-test button"
@@ -59,7 +71,7 @@ const ContentItem = (props) => {
   };
 
   // парсеры контента
-  let imgParse = (str, key) => {
+  let imgParse = (str) => {
     imgId++;
     let size = "";
     let sizeClassName = "img__middle";
@@ -84,7 +96,11 @@ const ContentItem = (props) => {
     } else imgLink = str;
 
     return (
-      <div key={key} style={animationIncrement()} className={sizeClassName}>
+      <div
+        key={getKey()}
+        style={animationIncrement()}
+        className={sizeClassName}
+      >
         <img
           onClick={imgIncreaseShow}
           src={imgLink}
@@ -94,68 +110,80 @@ const ContentItem = (props) => {
       </div>
     );
   };
-  let linkParce = (str, key) => {
+  let linkParce = (str) => {
     let res;
     let newStr = str.replace("<a", "<a target='_blank'");
 
     if (str.includes("<s>")) {
       res = (
-        <div key={key} style={animationIncrement()} className="selection-text">
+        <div
+          key={getKey()}
+          style={animationIncrement()}
+          className="selection-text"
+        >
           <p>{ReactHtmlParser(newStr.replace("<s>", ""))}</p>
         </div>
       );
     } else
       res = (
-        <p key={key} style={animationIncrement()}>
+        <p key={getKey()} style={animationIncrement()}>
           {ReactHtmlParser(newStr)}
         </p>
       );
 
     return res;
   };
-  let specialTextParse = (str, key) => {
+  let specialTextParse = (str) => {
     return (
-      <div key={key} style={animationIncrement()} className="selection-text">
+      <div
+        key={getKey()}
+        style={animationIncrement()}
+        className="selection-text"
+      >
         <p>{str.replace("<s>", "")}</p>
       </div>
     );
   };
-  let youtubeVideoParse = (str, key) => {
+  let youtubeVideoParse = (str) => {
     let link = "";
     for (let i = str.indexOf("=") + 1; i < str.length; i++) {
       link += str[i];
     }
     return (
-      <div key={key} style={animationIncrement()} className="youtube-video">
+      <div
+        key={getKey()}
+        style={animationIncrement()}
+        className="youtube-video"
+      >
         <iframe
           width="100%"
           height="100%"
           src={"https://www.youtube.com/embed/" + link}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
     );
   };
 
   // разбивает данные разделов на html элементы
-  let stepItemsParse = (stepName, keyItem) => {
+  let stepItemsParse = (stepName) => {
     let stepItems = [];
 
-    props.theme[stepName].forEach((str, key) => {
+    props.theme[stepName].forEach((str) => {
       if (str.includes("img/")) {
-        stepItems.push(imgParse(str, "el" + keyItem + key));
+        stepItems.push(imgParse(str));
       } else if (str.includes("<a") && str.includes("</a>")) {
-        stepItems.push(linkParce(str, "el" + keyItem + key));
+        stepItems.push(linkParce(str));
       } else if (str.includes("<s>")) {
-        stepItems.push(specialTextParse(str, "el" + keyItem + key));
+        stepItems.push(specialTextParse(str));
       } else if (str.includes("www.youtube.com/")) {
-        stepItems.push(youtubeVideoParse(str, "el" + keyItem + key));
+        stepItems.push(youtubeVideoParse(str));
       } else
         stepItems.push(
-          <p key={"el" + keyItem + key} style={animationIncrement()}>
+          <p key={getKey()} style={animationIncrement()}>
             {str}
           </p>
         );
@@ -166,18 +194,22 @@ const ContentItem = (props) => {
   // разбивает входящие данные темы на разделы (content__item)
   let contentParse = () => {
     let res = [];
-    getStepNames().forEach((stepName, key) => {
+    getStepNames().forEach((stepName) => {
       let contentItems = [];
 
       contentItems.push(
-        <h2 style={animationIncrement()} key={key} className="content__title">
+        <h2
+          style={animationIncrement()}
+          key={getKey()}
+          className="content__title"
+        >
           {stepName}
         </h2>
       );
-      contentItems.push(stepItemsParse(stepName, key));
+      contentItems.push(stepItemsParse(stepName));
 
       res.push(
-        <div id={idStep} className="content__item">
+        <div key={getKey()} id={idStep} className="content__item">
           {contentItems}
         </div>
       );
