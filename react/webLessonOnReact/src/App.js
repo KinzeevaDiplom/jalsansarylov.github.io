@@ -18,7 +18,11 @@ function App(props) {
     >
       <BrowserRouter>
         <div className="wraper">
-          <Menu state={props.state.menu} dispatch={props.dispatch} />
+          <Menu
+            state={props.state.menu}
+            themes={props.state.content.themes}
+            dispatch={props.dispatch}
+          />
 
           <Content
             fontSetting={props.state.menu.fontSetting}

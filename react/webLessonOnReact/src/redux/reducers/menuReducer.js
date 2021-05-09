@@ -1,4 +1,4 @@
-import data from "../../content/theme1.json";
+// import data from "../../content/theme1.json";
 
 // "c" значит content
 let cFont = localStorage.getItem("cFont");
@@ -8,7 +8,7 @@ let cFontLetterSpacing = localStorage.getItem("cFontLetterSpacing");
 let colorThemeGet = localStorage.getItem("colorTheme");
 
 let initialState = {
-  themes: data,
+  // themes: {},
   colorTheme: colorThemeGet ? colorThemeGet : "white-theme",
   hideShowMenu: "",
   newTextSearch: "",
@@ -90,6 +90,13 @@ let menuReducer = (state = initialState, action) => {
       state.fontSetting.fontFamily = action.font;
       localStorage.setItem("cFont", state.fontSetting.fontFamily);
       return state;
+
+    // case "FILL_CONTENT":
+    //   // if (Object.keys(state.themes) === 0) {
+    //   state.themes = action.content;
+    //   console.log(state.themes);
+    //   // }
+    //   return state;
 
     default:
       return state;

@@ -6,6 +6,32 @@ const Content = (props) => {
   const { pathImg, isShowBigImg, themes } = props.state;
   const { size, lineHeight, letterSpacing, fontFamily } = props.fontSetting;
 
+  let themesArr = Object.keys(themes);
+
+  // проверка на заполнение объекта
+  function isEmptyObject(obj) {
+    for (var i in obj) {
+      if (obj.hasOwnProperty(i)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // проверка наличия и заполнение контента
+  if (isEmptyObject(themes)) {
+    fetch("theme1.json")
+      .then((content) => content.json())
+      .then((content) => {
+        fillInitialState(content);
+      });
+  }
+
+  // функция для зполнения state
+  let fillInitialState = (content) => {
+    props.dispatch({ type: "FILL_CONTENT", content: content });
+  };
+
   // стили для текста в content
   let styleFont = {
     fontFamily: fontFamily + " ,sans-serif",
@@ -15,7 +41,6 @@ const Content = (props) => {
   };
 
   // получаем массив с именами тем
-  let themesArr = Object.keys(themes);
 
   // отрисовка элементов окна "темы"
   let drowThemeContent = themesArr.map((theme, index) => {

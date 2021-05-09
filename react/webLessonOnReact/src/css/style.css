@@ -239,8 +239,9 @@ path {
   align-items: center;
 }
 .menu .step--hide .step__link {
-  max-width: 20px;
-  max-height: 20px;
+  padding: 0;
+  width: 14px;
+  height: 14px;
   border-radius: 100%;
   overflow: hidden;
   color: rgba(255, 255, 255, 0);
@@ -255,6 +256,8 @@ path {
 }
 
 .menu .step--hide .active {
+  width: 17px;
+  height: 17px;
   background-color: var(--extraColor);
 }
 

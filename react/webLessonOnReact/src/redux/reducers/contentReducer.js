@@ -1,7 +1,7 @@
-import data from "../../content/theme1.json";
+// import data from "../../content/theme1.json";
 
 let initialState = {
-  themes: data,
+  themes: {},
   stateTest: {
     checkAsk: [],
     checkedId: [],
@@ -62,6 +62,21 @@ const contentReducer = (state = initialState, action) => {
     case "IMG_INCREASE_SHOW":
       state.isShowBigImg = true;
       state.pathImg = action.src;
+      return state;
+
+    case "FILL_CONTENT":
+      function isEmptyObject(obj) {
+        for (var i in obj) {
+          if (obj.hasOwnProperty(i)) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      if (isEmptyObject(state.themes)) {
+        state.themes = action.content;
+      }
       return state;
 
     default:
