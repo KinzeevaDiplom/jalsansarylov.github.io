@@ -47,6 +47,7 @@ const Content = props => {
   // проверка наличия и заполнение контента
   if (isEmptyObject(themes)) {
     renderContent()
+    console.log('content rerender1')
   }
 
   // стили для текста в content

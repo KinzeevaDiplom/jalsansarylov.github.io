@@ -74,9 +74,10 @@ const contentReducer = (state = initialState, action) => {
         return true
       }
 
-      if (isEmptyObject(state.themes)) {
-        state.themes = action.content
-      }
+      // if (isEmptyObject(state.themes)) {
+      state.themes = action.content
+      console.log('hello')
+      // }
       return state
 
     default:
