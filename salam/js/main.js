@@ -5,17 +5,18 @@ $(document).ready(() => {
     autoplay: true,
     autoplaySpeed: 5000,
   });
-
+ 
   // заполняем sidebar
   let arrCombArtist = combineArtist(artistsData);
   let randomArtists = rondomizeArtists(arrCombArtist);
 
+
   $(".side-bar").html(drowElSideBar(randomArtists));
 
-  // console.log(drowElSideBar(randomArtists));
 });
 
 let combineArtist = (arr) => {
+
   let res = [];
   arr.forEach((element) => {
     let arrEl = Object.keys(element);
@@ -23,6 +24,8 @@ let combineArtist = (arr) => {
       res = res.concat(element[arrEl]);
     });
   });
+  console.log(res)
+  // debugger
   return res;
 };
 
@@ -30,12 +33,13 @@ let rondomizeArtists = (arr) => {
   let res = [];
   let randomNum = [];
   for (let i = 0; i < arr.length; i++) {
-    let num = Math.floor(Math.random() * 6) + 0;
+    let num = Math.floor(Math.random() * arr.length) + 0;
     if (!randomNum.includes(num)) {
       randomNum.push(num);
       res.push(arr[num]);
     } else i--;
   }
+  // debugger
   return res;
 };
 
@@ -52,6 +56,6 @@ let drowElSideBar = (arr) => {
     </button>`;
     res += item;
   });
+  // debugger
   return res;
 };
-жанр;

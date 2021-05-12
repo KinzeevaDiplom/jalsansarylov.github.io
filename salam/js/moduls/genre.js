@@ -17,8 +17,10 @@ let drowTrackList = () => {
       res = `<iframe frameborder="0" style="border:none;width:100%;height:100vh;" width="100%" height="450vh" src="https://music.yandex.ru/iframe/#playlist/music-blog/1002">Listen to <a href='https://music.yandex.ru/users/music-blog/playlists/1002?lang=en'>Pop Forever</a> — <a href='https://music.yandex.ru/users/music-blog'>Yandex Music</a> on Yandex Music</iframe>`;
       return res;
     case "dubstep":
+      res = `<iframe frameborder="0" style="border:none;width:100%;height:100vh;" width="100%" height="450" src="https://music.yandex.ru/iframe/#playlist/music-blog/2136">Слушайте <a href='https://music.yandex.ru/users/music-blog/playlists/2136'>Электронная одиссея</a> — <a href='https://music.yandex.ru/users/music-blog'>Яндекс.Музыка</a> на Яндекс.Музыке</iframe>`;
       return res;
     case "metal":
+      res = `<iframe frameborder="0" style="border:none;width:100%;height:100vh;" width="100%" height="450vh" src="https://music.yandex.ru/iframe/#playlist/music-blog/1002">Listen to <a href='https://music.yandex.ru/users/music-blog/playlists/1002?lang=en'>Pop Forever</a> — <a href='https://music.yandex.ru/users/music-blog'>Yandex Music</a> on Yandex Music</iframe>`;
       return res;
   }
 

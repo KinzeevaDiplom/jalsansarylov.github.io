@@ -48,6 +48,8 @@ body {
   transition: all 0.3s;
   border-radius: 0px 15px 0px 15px;
   font-weight: 500;
+  background-color: #24272e00;
+  border: none;
 }
 .menu-link:hover {
   background-color: #c71aa4;

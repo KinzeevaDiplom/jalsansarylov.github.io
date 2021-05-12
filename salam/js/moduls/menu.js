@@ -8,8 +8,8 @@ $(document).ready(() => {
 <button onclick="createGenrePage('pop')" class="menu-link">
   pop
 </button>
-<button onclick="createGenrePage('dubstep')" class="menu-link">
-  dubstep
+<button onclick="createGenrePage('electronics')" class="menu-link">
+  electronics
 </button>
 <button onclick="createGenrePage('metal')" class="menu-link">
   metal
