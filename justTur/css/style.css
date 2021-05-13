@@ -3,10 +3,6 @@ html { overflow-x: hidden; }
 
 body { line-height: 1.7; color: gray; font-weight: 300; font-size: 1.1rem; }
 
-.box{
-	background-color:red;
-}
-
 ::selection { background: #000; color: #fff; }
 
 a { transition: .3s all ease; }
