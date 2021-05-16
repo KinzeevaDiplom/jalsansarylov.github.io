@@ -56,10 +56,10 @@ const MenuStep = (props) => {
     let res = [];
     for (let i = 1; i <= qsnQuantity(); i++) {
       let show = {
-        animation: "fadeInUp",
+        animation: "fadeIn",
         animationDuration: showDeley + "s",
       };
-      showDeley += 0.2;
+      showDeley += 0.1;
 
       res.push(
         <Link
@@ -95,12 +95,14 @@ const MenuStep = (props) => {
         to={index}
         spy={true}
         smooth={true}
-        offset={-70}
+        offset={-30}
         duration={500}
         className="step__link"
       >
         {step}
       </Link>
+
+      // <a className="step__link" href={'#'+index}>{step}</a>
     );
   });
 

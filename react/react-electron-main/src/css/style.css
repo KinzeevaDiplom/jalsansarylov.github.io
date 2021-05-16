@@ -394,14 +394,18 @@ path {
 }
 .content__item,
 .qsn {
-  min-height: 100vh;
-  padding: 0 0 10rem;
+  min-height: 110vh;
+  padding-bottom: 10rem ;
   border-bottom: 1px dotted var(--mainColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: border 1s;
 }
+
+/* .bottom-indent{
+  height: 30px;
+} */
+
 .content__text .content__title {
   text-transform: uppercase;
   font-size: 30px;

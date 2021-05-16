@@ -66,7 +66,7 @@ const ContentItem = props => {
       animation: 'fadeInUpBig',
       animationDuration: showDeley + 's'
     }
-    if (showDeley < 1) showDeley += 0.1
+    if (showDeley < .5) showDeley += 0.1
     return show
   }
 
@@ -219,6 +219,7 @@ const ContentItem = props => {
       res.push(
         <div key={getKey()} id={idStep} className="content__item">
           {contentItems}
+          {/* <div className="bottom-indent"></div> */}
         </div>
       )
 
