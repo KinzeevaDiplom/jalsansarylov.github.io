@@ -108,6 +108,8 @@ section {
 .container-content .side-bar {
   /* display: flex; */
   width: 30%;
+  max-height: 520px ;
+  overflow-y: scroll;
 }
 
 .container-content button {
@@ -171,4 +173,14 @@ section {
 .WidgetBackground__Background-e8l9qy-1 {
   /* background-color: rgba(255, 0, 0, 0); */
   position: relative;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0);
+}
+::-webkit-scrollbar-thumb {
+  background-color: purple;
+  border-radius: 100px;
 }

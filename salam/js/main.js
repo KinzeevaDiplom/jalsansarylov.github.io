@@ -24,8 +24,6 @@ let combineArtist = (arr) => {
       res = res.concat(element[arrEl]);
     });
   });
-  console.log(res)
-  // debugger
   return res;
 };
 
@@ -39,7 +37,6 @@ let rondomizeArtists = (arr) => {
       res.push(arr[num]);
     } else i--;
   }
-  // debugger
   return res;
 };
 
