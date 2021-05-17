@@ -1,81 +1,81 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/slick.css" />
-    <link rel="stylesheet" href="css/slick-theme.css" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/preloader.css" />
-    <link rel="stylesheet" href="css/background.css" />
-  </head>
-  <body>
-    <!-- <div id="particles-js"></div> -->
 
-    <div class="preloader">
-      <div class="loader"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/slick.css" />
+  <link rel="stylesheet" href="css/slick-theme.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/preloader.css" />
+  <link rel="stylesheet" href="css/background.css" />
+</head>
+
+<body>
+  <div id="particles-js"></div>
+
+  <div class="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <!-- иконки -->
+      <div class="wrapper-icon">
+        <a href="#" class="icon__item"><i class="fa fa-vk" aria-hidden="true"></i></a>
+        <a href="#" class="icon__item"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="#" class="icon__item"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        <a href="#" class="icon__item"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+      </div>
+      <!-- меню и лого -->
+      <div class="header-top">
+        <a href="index.html" class="logo">
+          <img src="IMG/Без имени-1.png" height="80" alt="" />
+        </a>
+        <nav class="menu">
+          <!-- заполняется из menu.js -->
+        </nav>
+      </div>
     </div>
+  </header>
 
-    <header class="header">
-      <div class="container">
-        <!-- иконки -->
-        <div class="wrapper-icon">
-          <a href="#" class="icon__item"
-            ><i class="fa fa-vk" aria-hidden="true"></i
-          ></a>
-          <a href="#" class="icon__item"
-            ><i class="fa fa-instagram" aria-hidden="true"></i
-          ></a>
-          <a href="#" class="icon__item"
-            ><i class="fa fa-facebook-square" aria-hidden="true"></i
-          ></a>
-          <a href="#" class="icon__item"
-            ><i class="fa fa-youtube" aria-hidden="true"></i
-          ></a>
-        </div>
-        <!-- меню и лого -->
-        <div class="header-top">
-          <a href="index.html" class="logo">
-            <img src="IMG/Без имени-1.png" height="80" alt="" />
-          </a>
-          <nav class="menu">
-            <!-- заполняется из menu.js -->
-          </nav>
-        </div>
+  <section class="play-list">
+    <div class="container container-content">
+      <div class="track-list"></div>
+      <div class="side-bar">
+        <!-- тут содержимое создается с помощью js -->
       </div>
-    </header>
+    </div>
+  </section>
 
-    <section class="play-list">
-      <div class="container container-content">
-        <div class="track-list"></div>
-        <div class="side-bar">
-          <!-- тут содержимое создается с помощью js -->
-        </div>
-      </div>
-    </section>
 
-    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  <footer class="footer"></footer>
 
-    <!-- https://avatars.yandex.net/get-music-content/2424959/e9d43d6b.p.3426942/200x200
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+
+  <!-- https://avatars.yandex.net/get-music-content/2424959/e9d43d6b.p.3426942/200x200
     https://avatars.yandex.net/get-music-content/118603/a39a9aaf.p.249991/200x200 -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/moduls/menu.js"></script>
-    <script type="module" src="js/moduls/genre.js"></script>
-    <script type="module" src="js/moduls/preloaderOff.js"></script>
-    <script>
-      let playListCreate = (artist) => {
-        localStorage.setItem("idArtist", artist);
-        document.location.href = "artist.html";
-      };
-    </script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/moduls/menu.js"></script>
+  <script src="js/moduls/footer.js"></script>
+
+  <script src="js/libs/particles.js"></script>
+  <script src="js/moduls/background.js"></script>
+  <script type="module" src="js/moduls/genre.js"></script>
+  <script type="module" src="js/moduls/preloaderOff.js"></script>
+  <script>
+    let playListCreate = (artist) => {
+      localStorage.setItem("idArtist", artist);
+      document.location.href = "artist.html";
+    };
+  </script>
+</body>
+
 </html>

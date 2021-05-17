@@ -181,6 +181,29 @@ section {
   background-color: rgba(255, 255, 255, 0);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: purple;
+  background-color: rgb(228, 78, 78);
   border-radius: 100px;
+}
+.footer{
+  background-color: #24272e;
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px -7px 5px #c71aa4c2;
+  border-top: 3px solid rgb(124, 124, 124);
+}
+.footer-wrapper{
+  display: flex;
+  padding: 1em;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+ 
+}
+.icon__item__footer{
+  box-shadow: none;
+  margin-right: 10px;
+  transition: box-shadow .2s;
+}
+.icon__item__footer:hover{
+  box-shadow: 0px 0px 15px #c71aa4c2;
+  
 }
