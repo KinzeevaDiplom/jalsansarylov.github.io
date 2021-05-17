@@ -48,7 +48,7 @@
   <section class="play-list">
     <div class="container container-content">
       <div class="track-list"></div>
-      <div class="side-bar">
+      <div class="side-bar ">
         <!-- тут содержимое создается с помощью js -->
       </div>
     </div>
@@ -63,19 +63,16 @@
     https://avatars.yandex.net/get-music-content/118603/a39a9aaf.p.249991/200x200 -->
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/libs/particles.js"></script>
+
+
   <script src="js/moduls/menu.js"></script>
   <script src="js/moduls/footer.js"></script>
 
-  <script src="js/libs/particles.js"></script>
   <script src="js/moduls/background.js"></script>
   <script type="module" src="js/moduls/genre.js"></script>
   <script type="module" src="js/moduls/preloaderOff.js"></script>
-  <script>
-    let playListCreate = (artist) => {
-      localStorage.setItem("idArtist", artist);
-      document.location.href = "artist.html";
-    };
-  </script>
+  <script src="js/moduls/playListCreate.js"></script>
 </body>
 
 </html>

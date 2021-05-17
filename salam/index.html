@@ -77,7 +77,7 @@
           на Яндекс.Музыке
         </iframe>
       </div>
-      <div class="side-bar">
+      <div class="side-bar main-side-bar">
         <!-- тут содержимое создается с помощью js -->
       </div>
     </div>
@@ -105,12 +105,7 @@
   <script src="js/moduls/preloaderOff.js"></script>
   <script src="js/moduls/menu.js"></script>
   <script src="js/moduls/footer.js"></script>
-  <script>
-    let playListCreate = (artist) => {
-      localStorage.setItem("idArtist", artist);
-      document.location.href = "artist.html";
-    };
-  </script>
+  <script src="js/moduls/playListCreate.js"></script>
 </body>
 
 </html>

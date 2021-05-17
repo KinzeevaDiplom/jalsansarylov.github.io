@@ -42,7 +42,24 @@
 
   <section>
     <div class="container">
+      <div class="alboms">
+        <div class="alboms__wrapper">
+          <button class="alboms__item all-tracks">
+            <span>все треки</span>
+          </button>
+          <button class="alboms__item"></button>
+          <button class="alboms__item"></button>
+          <button class="alboms__item"></button>
+          <button class="alboms__item"></button>
+          <button class="alboms__item"></button>
+          <button class="alboms__item"></button>
+          <button class="alboms__item"></button>
+          <!-- плей лист грузиться с помощью js -->
+        </div>
+      </div>
+
       <div class="artist-block"></div>
+      <!-- плей лист грузиться с помощью js -->
     </div>
   </section>
 
@@ -54,6 +71,10 @@
   <script src="js/moduls/background.js"></script>
   <script src="js/moduls/menu.js"></script>
   <script src="js/moduls/footer.js"></script>
+
+  <script type="module" src="js/moduls/artist.js"></script>
+
+
   <script>
     $(document).ready(function () {
       let artist = localStorage.getItem("idArtist");

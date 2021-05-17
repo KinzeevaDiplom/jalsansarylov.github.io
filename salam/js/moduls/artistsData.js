@@ -21,8 +21,15 @@ let all = [
       { id: 41052, name: "Король и шут", photo: "95061/1d46a945" },
       { id: 41075, name: "КИНО", photo: "103235/595a9423" },
       { id: 42004, name: "Hollywood Undead", photo: "2399641/1d2a9b69" },
-     
-
+    ],
+    pop: [
+      { id: 41052, name: "Король и шут", photo: "95061/1d46a945" },
+    ],
+    electronics: [
+      { id: 41052, name: "Король и шут", photo: "95061/1d46a945" },
+    ],
+    metal: [
+      { id: 41052, name: "Король и шут", photo: "95061/1d46a945" },
     ],
   },
 ];
