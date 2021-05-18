@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.wrapper-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  width: 100%;
+}
+.input span {
+  align-self: center;
+}
+
+input {
+  padding: 0.4em 1em;
+}
+
+.input__title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.input div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.input__btn {
+  padding: 0.4em 3em;
+  margin: 2rem auto;
+}
+
+.select-test {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-test__btn {
+  padding: 0.5em 4em;
+}
