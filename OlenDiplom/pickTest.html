@@ -10,11 +10,25 @@
     <div class="wrapper-center">
       <div class="select-test">
         <h2 class="select-test__title">Выберите тест</h2>
-        <button class="select-test__btn">test1</button>
-        <button class="select-test__btn">test2</button>
-        <button class="select-test__btn">test3</button>
-        <button class="select-test__btn">test4</button>
+        <button class="select-test__btn" onclick="setNameTest('test1')">
+          test1
+        </button>
+        <button class="select-test__btn" onclick="setNameTest('test1')">
+          test2
+        </button>
+        <button class="select-test__btn" onclick="setNameTest('test1')">
+          test3
+        </button>
+        <button class="select-test__btn" onclick="setNameTest('test1')">
+          test4
+        </button>
       </div>
     </div>
+    <script>
+      let setNameTest = (testName) => {
+        localStorage.setItem("testName", testName);
+        document.location.href = "test.html";
+      };
+    </script>
   </body>
 </html>
