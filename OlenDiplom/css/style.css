@@ -2,11 +2,25 @@
   margin: 0;
   padding: 0;
 }
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+button{
+  cursor: pointer;
+}
+
+h2{
+  font-size: 2.5rem;
+}
+
 .wrapper-center {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 0 1rem;
 }
 .input {
   display: flex;
@@ -39,10 +53,17 @@ input {
 }
 
 .select-test {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .select-test__btn {
-  padding: 0.5em 4em;
+  padding: 1em 4em;
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 2em;
 }
