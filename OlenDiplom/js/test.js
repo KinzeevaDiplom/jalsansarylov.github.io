@@ -4,28 +4,29 @@ $(document).ready(() => {
   drowQuestion();
 
   let res = {};
-
+  // для автоматического перехода к след вопросу
   $("input").click((e) => {
     res = addRes(e, res);
     nextStep(e);
   });
-
+  // кнопка результата
   $(".btn-res").click(() => {
     checkAnswers(res);
   });
 });
-
+// рисует вопросы
 let drowQuestion = () => {
   let testName = localStorage.getItem("testName");
   let testQuest = getQuest(testName);
 
   if (testQuest.type == "trueFalse") {
     localStorage.setItem("testType", "trueFalse");
-    let questHtml = createHtml(testQuest.questions);
-    $(".qustion").html(questHtml);
   }
-};
 
+  let questHtml = createHtml(testQuest.questions);
+  $(".qustion").html(questHtml);
+};
+// получить вопросы из общего массива
 let getQuest = (testName) => {
   let res = {};
 
@@ -38,7 +39,7 @@ let getQuest = (testName) => {
 
   return res;
 };
-
+// формирует html размету вопросов
 let createHtml = (arr) => {
   let res = "";
 
@@ -62,7 +63,7 @@ let createHtml = (arr) => {
 
   return res;
 };
-
+// рисует элементы навигации
 let drowNav = (quantity) => {
   let navHtml = "";
   for (let i = 0; i < quantity + 1; i++) {
@@ -70,7 +71,7 @@ let drowNav = (quantity) => {
   }
   $(".nav").html(navHtml);
 };
-
+// проверка результата
 let checkAnswers = (res) => {
   if (localStorage.getItem("testType") == "trueFalse") {
     let arrRes = Object.values(res);
@@ -81,7 +82,7 @@ let checkAnswers = (res) => {
     console.log(trueAns);
   }
 };
-
+// заполнения массива с ответами на тест
 let addRes = (e, res) => {
   let resF = res;
   if (localStorage.getItem("testType") == "trueFalse") {
@@ -90,7 +91,7 @@ let addRes = (e, res) => {
   }
   return resF;
 };
-
+// функция для перехода на след вопрос
 let nextStep = (e) => {
   let name = e.target.name;
   let nextId = parseInt(name.replace("q", ""));
