@@ -2,7 +2,17 @@ import testData from "./moduls/testData.js";
 
 $(document).ready(() => {
   drowQuestion();
-  $(".btn-res").click(checkAnswers);
+
+  let res = {};
+
+  $("input").click((e) => {
+    res = addRes(e, res);
+    nextStep(e);
+  });
+
+  $(".btn-res").click(() => {
+    checkAnswers(res);
+  });
 });
 
 let drowQuestion = () => {
@@ -10,6 +20,7 @@ let drowQuestion = () => {
   let testQuest = getQuest(testName);
 
   if (testQuest.type == "trueFalse") {
+    localStorage.setItem("testType", "trueFalse");
     let questHtml = createHtml(testQuest.questions);
     $(".qustion").html(questHtml);
   }
@@ -55,12 +66,34 @@ let createHtml = (arr) => {
 let drowNav = (quantity) => {
   let navHtml = "";
   for (let i = 0; i < quantity + 1; i++) {
-    navHtml += `<a href="#${i}" content="вопрос${i + 1}"></a>`;
+    navHtml += `<a href="#${i}" id = "nav${i}" content="вопрос${i + 1}"></a>`;
   }
   $(".nav").html(navHtml);
 };
 
-let checkAnswers = () => {
-  if (testQuest.type == "trueFalse") {
+let checkAnswers = (res) => {
+  if (localStorage.getItem("testType") == "trueFalse") {
+    let arrRes = Object.values(res);
+    let trueAns = 0;
+    arrRes.forEach((el) => {
+      if (el == "true") trueAns++;
+    });
+    console.log(trueAns);
   }
+};
+
+let addRes = (e, res) => {
+  let resF = res;
+  if (localStorage.getItem("testType") == "trueFalse") {
+    if (e.target.value.includes("<t>")) resF[e.target.name] = "true";
+    else resF[e.target.name] = "false";
+  }
+  return resF;
+};
+
+let nextStep = (e) => {
+  let name = e.target.name;
+  let nextId = parseInt(name.replace("q", ""));
+  document.location = `#${nextId + 1}`;
+  $(`#nav${nextId}`).css("background", "orange");
 };

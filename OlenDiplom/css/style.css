@@ -89,6 +89,7 @@ input {
 
 .qustion__item label {
   margin-top: 1.5rem;
+  cursor: pointer;
 }
 
 .qustion__item input {
@@ -112,7 +113,7 @@ input {
 .nav a {
   width: 20px;
   height: 20px;
-  background-color: orange;
+  background-color: gray;
   left: 0;
   top: 0;
   margin-top: 1.5rem;
@@ -143,4 +144,16 @@ input {
   padding: 1em 2em;
   font-size: 1rem;
   margin: 4rem 0;
+}
+
+.btn_down {
+  position: fixed;
+  right: 5rem;
+  bottom: 3rem;
+  width: 50px;
+  height: 50px;
+}
+
+.btn_down img {
+  width: 100%;
 }
