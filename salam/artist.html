@@ -45,16 +45,11 @@
       <div class="alboms">
         <div class="alboms__wrapper">
           <button class="alboms__item all-tracks">
-            <span>все треки</span>
           </button>
-          <button class="alboms__item"></button>
-          <button class="alboms__item"></button>
-          <button class="alboms__item"></button>
-          <button class="alboms__item"></button>
-          <button class="alboms__item"></button>
-          <button class="alboms__item"></button>
-          <button class="alboms__item"></button>
-          <!-- плей лист грузиться с помощью js -->
+          <div class="alboms__wrapper__render">
+            <!-- плей лист грузиться с помощью js -->
+
+          </div>
         </div>
       </div>
 
@@ -77,10 +72,17 @@
 
   <script>
     $(document).ready(function () {
+      drowPlayList();
+    });
+    let drowPlayList = () => {
       let artist = localStorage.getItem("idArtist");
       let iframe = `<iframe frameborder="0" style="border:none;width:100%;height:100vh;" width="100%" height="450" src="https://music.yandex.ru/iframe/#artist/${artist}">Слушайте <a href='https://music.yandex.ru/album/3087311'>Горгород</a> — <a href='https://music.yandex.ru/artist/249991'>Oxxxymiron</a> на Яндекс.Музыке</iframe>`;
       $(".artist-block").html(iframe);
-    });
+    }
+    let drowPlayListAlbom = (id) => {
+      let iframe = `<iframe frameborder="0" style="border:none;width:100%;height:450px;" width="100%" height="450" src="https://music.yandex.ru/iframe/#album/${id}">Слушайте <a href='https://music.yandex.ru/album/${id}'>Горгород</a> — <a href='https://music.yandex.ru/artist/249991'>Oxxxymiron</a> на Яндекс.Музыке</iframe>`;
+      $(".artist-block").html(iframe);
+    }
   </script>
   <script src="js/main.js"></script>
 </body>

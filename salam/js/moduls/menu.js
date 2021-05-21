@@ -13,7 +13,15 @@ $(document).ready(() => {
 </button>
 <button onclick="createGenrePage('metal')" class="menu-link">
   metal
-</button>`);
+</button>
+`);
+
+  $(".btn-wrapper").click(() => {
+    $(".btn-wrapper").toggleClass("btn-close");
+    if ($(".btn-wrapper").attr("class").includes("btn-close"))
+      $(".menu").css("top", "0");
+    else $(".menu").css("top", "-100%");
+  });
 });
 
 let createGenrePage = (genre) => {
