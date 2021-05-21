@@ -30,7 +30,7 @@ let drowQuestion = () => {
   $(".qustion").html(questHtml);
 };
 
-// получить вопросы из общего массива
+// получить данные теста из общего массива
 let getQuest = (testName) => {
   let res = {};
 
@@ -38,20 +38,6 @@ let getQuest = (testName) => {
   arrTests.forEach((test) => {
     if (testName == test) {
       res = testData[test];
-    }
-  });
-
-  return res;
-};
-
-// получить ответы из общего массива
-let getQuest = (testName) => {
-  let res = {};
-
-  let arrTests = Object.keys(testData);
-  arrTests.forEach((test) => {
-    if (testName == test) {
-      res = testData.answer;
     }
   });
 
@@ -124,7 +110,7 @@ let checkAnswers = (res) => {
       "Вы ответили не на все вопросы. Вы точно хотите подвести результаты ?"
     );
   }
-  if (resume)
+  if (resume) {
     if (localStorage.getItem("testType") == "trueFalse") {
       let arrRes = Object.values(res);
       let trueAns = 0;
@@ -135,11 +121,29 @@ let checkAnswers = (res) => {
     } else {
       let arrRes = Object.values(res);
       let arrResPrefix = Object.keys(res);
-      let maxEl = getIndex(arrRes);
-      let prefix = sliceOption(arrResPrefix[maxEl]);
-
-      localStorage.setItem("testRes");
+      let maxElIndex = getIndex(arrRes);
+      let prefix = arrResPrefix[maxElIndex].replace("<-", "").replace("->", "");
+      localStorage.setItem("testRes", getFinalAnswer(prefix));
+      console.log(localStorage.getItem("testRes"));
     }
+  }
+};
+
+// получить полный ответ
+let getFinalAnswer = (prefix) => {
+  let resF = [];
+
+  let questData = getQuest(localStorage.getItem("testName"));
+  questData.answer.forEach((el) => {
+    let elArr = Object.keys(el);
+    elArr.forEach((item) => {
+      if (prefix == item) {
+        resF = Object.values(el);
+      }
+    });
+  });
+
+  return resF;
 };
 
 // определяет на все ли вопросы ответили
@@ -148,15 +152,10 @@ let isFullFill = () => {
 
   let arrNav = document.querySelectorAll(".nav__item");
   arrNav.forEach((item) => {
-    // console.log($(item).css("background"));
-
     if ($(item).css("background").includes("rgb(128, 128, 128)")) {
       res = false;
-      console.log("hge");
     }
   });
-
-  console.log(res);
 
   return res;
 };
