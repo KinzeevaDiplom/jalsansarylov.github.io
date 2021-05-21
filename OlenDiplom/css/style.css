@@ -157,3 +157,31 @@ input {
 .btn_down img {
   width: 100%;
 }
+
+.result {
+  max-width: 1200px;
+  line-height: 2em;
+}
+
+.result h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.result p {
+  text-align: justify;
+}
+
+.btn-back {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: black;
+  min-width: 10rem;
+  width: 0%;
+  padding: 0.5rem 2rem;
+  border: 1px solid black;
+  /* margin: 0 auto; */
+  text-decoration: none;
+  margin-top: 5rem;
+}

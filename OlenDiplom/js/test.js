@@ -14,6 +14,7 @@ $(document).ready(() => {
     checkAnswers(res);
   });
 });
+
 // рисует вопросы
 let drowQuestion = () => {
   let testName = localStorage.getItem("testName");
@@ -21,11 +22,14 @@ let drowQuestion = () => {
 
   if (testQuest.type == "trueFalse") {
     localStorage.setItem("testType", "trueFalse");
+  } else {
+    localStorage.setItem("testType", "increment");
   }
 
   let questHtml = createHtml(testQuest.questions);
   $(".qustion").html(questHtml);
 };
+
 // получить вопросы из общего массива
 let getQuest = (testName) => {
   let res = {};
@@ -39,7 +43,22 @@ let getQuest = (testName) => {
 
   return res;
 };
-// формирует html размету вопросов
+
+// получить ответы из общего массива
+let getQuest = (testName) => {
+  let res = {};
+
+  let arrTests = Object.keys(testData);
+  arrTests.forEach((test) => {
+    if (testName == test) {
+      res = testData.answer;
+    }
+  });
+
+  return res;
+};
+
+// формирует html разметку вопросов
 let createHtml = (arr) => {
   let res = "";
 
@@ -47,7 +66,9 @@ let createHtml = (arr) => {
     drowNav(index);
 
     let optionHtmlArr = quest.option.map((option) => {
-      return `<label><input type="radio" name="q${index}" value="${option}"  />${option}</label>`;
+      return `<label><input type="radio" name="q${index}" value="${option}"  />${sliceOption(
+        option
+      )}</label>`;
     });
     let optionHtmlStr = optionHtmlArr.join(" ");
 
@@ -63,34 +84,107 @@ let createHtml = (arr) => {
 
   return res;
 };
+// обрезает префикс
+let sliceOption = (option) => {
+  let res = option;
+
+  if (option.includes("<-") && option.includes("->")) {
+    res = option.replace(getPrefix(option), "");
+  }
+
+  return res;
+};
+// получить префикс
+let getPrefix = (option) => {
+  let startPrefix = option.indexOf("<-");
+  let endPrefix = option.lastIndexOf("->") + 2;
+  let prefix = "";
+  for (let i = startPrefix; i < endPrefix; i++) {
+    prefix += option[i];
+  }
+  return prefix;
+};
+
 // рисует элементы навигации
 let drowNav = (quantity) => {
   let navHtml = "";
   for (let i = 0; i < quantity + 1; i++) {
-    navHtml += `<a href="#${i}" id = "nav${i}" content="вопрос${i + 1}"></a>`;
+    navHtml += `<a href="#${i}" class="nav__item" id = "nav${i}" content="вопрос${
+      i + 1
+    }"></a>`;
   }
   $(".nav").html(navHtml);
 };
+
 // проверка результата
 let checkAnswers = (res) => {
-  if (localStorage.getItem("testType") == "trueFalse") {
-    let arrRes = Object.values(res);
-    let trueAns = 0;
-    arrRes.forEach((el) => {
-      if (el == "true") trueAns++;
-    });
-    console.log(trueAns);
+  let resume = true;
+  if (!isFullFill()) {
+    resume = confirm(
+      "Вы ответили не на все вопросы. Вы точно хотите подвести результаты ?"
+    );
   }
+  if (resume)
+    if (localStorage.getItem("testType") == "trueFalse") {
+      let arrRes = Object.values(res);
+      let trueAns = 0;
+      arrRes.forEach((el) => {
+        if (el == "true") trueAns++;
+      });
+      localStorage.setItem("testRes", trueAns);
+    } else {
+      let arrRes = Object.values(res);
+      let arrResPrefix = Object.keys(res);
+      let maxEl = getIndex(arrRes);
+      let prefix = sliceOption(arrResPrefix[maxEl]);
+
+      localStorage.setItem("testRes");
+    }
 };
+
+// определяет на все ли вопросы ответили
+let isFullFill = () => {
+  let res = true;
+
+  let arrNav = document.querySelectorAll(".nav__item");
+  arrNav.forEach((item) => {
+    // console.log($(item).css("background"));
+
+    if ($(item).css("background").includes("rgb(128, 128, 128)")) {
+      res = false;
+      console.log("hge");
+    }
+  });
+
+  console.log(res);
+
+  return res;
+};
+
+// ищет индекс наибольшего элемента массива
+let getIndex = (arr) => {
+  let greatest = arr[0];
+  let index = 0;
+  arr.forEach(function (item, i) {
+    if (item > greatest) (greatest = item), (index = i);
+  });
+  return index;
+};
+
 // заполнения массива с ответами на тест
 let addRes = (e, res) => {
   let resF = res;
   if (localStorage.getItem("testType") == "trueFalse") {
     if (e.target.value.includes("<t>")) resF[e.target.name] = "true";
     else resF[e.target.name] = "false";
+  } else {
+    let option = e.target.value;
+    let prefix = getPrefix(option);
+    resF[prefix] = resF[prefix] >= 0 ? resF[prefix] + 1 : 1;
   }
   return resF;
 };
+
 // функция для перехода на след вопрос
 let nextStep = (e) => {
   let name = e.target.name;
