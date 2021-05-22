@@ -82,7 +82,7 @@ const MenuStep = (props) => {
 
   let drowSteps = searchStep().map((step, index) => {
     let show = {
-      animation: "fadeInUp",
+      animation: "fadeIn",
       animationDuration: showDeley + "s",
     };
     showDeley += 0.2;
