@@ -9,13 +9,19 @@ let getHtmlResult = () => {
   let typeTest = localStorage.getItem("testType");
   let name = localStorage.getItem("name");
   let lastName = localStorage.getItem("lastName");
-  let resTest = localStorage.getItem("testRes");
+  let prefix = localStorage.getItem("prefix");
 
   if (typeTest == "trueFalse") {
-    res = `<p>${name} ${lastName}, результат проиденного теста: ${resTest}</p>`;
+    let more = localStorage.getItem("testResText");
+    let testLength = localStorage.getItem("testLength");
+    let resTest = localStorage.getItem("testRes");
+    res = `<p><span class="nameUser">${name} ${lastName}</span>, результат проиденного теста: ${resTest} правильных из ${testLength}</p>
+    <p>${more}</p>
+    `;
   } else {
-    res = `<p>${name} ${lastName}, результат проиденного теста: ${resTest[0]} </p>
-    <p>${resTest[1]}</p>
+    let resTest = JSON.parse(localStorage.getItem("testRes"));
+    res = `<p><span class="nameUser">${name} ${lastName}</span>, результат проиденного теста: ${resTest[prefix]} </p>
+    <p>${resTest.moreInfo}</p>
     `;
   }
 

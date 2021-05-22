@@ -38,6 +38,7 @@ let getQuest = (testName) => {
   arrTests.forEach((test) => {
     if (testName == test) {
       res = testData[test];
+      localStorage.setItem("testLength", testData[test].questions.length);
     }
   });
 
@@ -118,27 +119,44 @@ let checkAnswers = (res) => {
         if (el == "true") trueAns++;
       });
       localStorage.setItem("testRes", trueAns);
+      localStorage.setItem("testResText", testAnswerTF(trueAns));
+      document.location.href = "result.html";
     } else {
       let arrRes = Object.values(res);
       let arrResPrefix = Object.keys(res);
       let maxElIndex = getIndex(arrRes);
       let prefix = arrResPrefix[maxElIndex].replace("<-", "").replace("->", "");
+      localStorage.setItem("prefix", prefix);
       localStorage.setItem("testRes", getFinalAnswer(prefix));
-      console.log(localStorage.getItem("testRes"));
+      document.location.href = "result.html";
     }
   }
 };
+// получить полный ответ trueFalse
 
-// получить полный ответ
+let testAnswerTF = (colTrueA) => {
+  let res = "";
+
+  let questData = getQuest(localStorage.getItem("testName"));
+  let answers = questData.answer[0];
+  let index = Object.keys(questData.answer[0]);
+  index.forEach((el) => {
+    if (colTrueA >= el) res = answers[el];
+  });
+
+  return res;
+};
+
+// получить полный ответ increment
 let getFinalAnswer = (prefix) => {
-  let resF = [];
+  let resF;
 
   let questData = getQuest(localStorage.getItem("testName"));
   questData.answer.forEach((el) => {
     let elArr = Object.keys(el);
     elArr.forEach((item) => {
       if (prefix == item) {
-        resF = Object.values(el);
+        resF = JSON.stringify(el);
       }
     });
   });
