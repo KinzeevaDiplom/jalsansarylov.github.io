@@ -1,18 +1,20 @@
 $(document).ready(function () {
-    $(".input__btn").click(saveUserData);
-})
- 
-let saveUserData = () => {
+  $("input").on("input", () => {
+    if (
+      document.getElementById("name").value != "" &&
+      document.getElementById("last-name").value != ""
+    ) {
+      $("button").removeAttr("disabled");
+    } else {
+      $("button").attr("disabled", true);
+    }
+  });
+
+  $(".input__btn").click(() => {
     let name = document.getElementById("name").value;
     let lastName = document.getElementById("last-name").value;
-
-    if (name != "" && lastName !=""){
-        localStorage.setItem("name",name);
-        localStorage.setItem("lastName",lastName);
-        document.location.href = "pickTest.html";
-    }
-    else {
-        alert("заполните поля")
-    }
-        
-}
+    localStorage.setItem("name", name);
+    localStorage.setItem("lastName", lastName);
+    document.location.href = "pickTest.html";
+  });
+});
