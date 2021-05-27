@@ -10,33 +10,55 @@
   <body>
     <div class="app-wrapper">
       <div class="menu menu-hide">
-        <div class="btn-hide__wrapper ">
+        <div class="btn-hide__wrapper">
           <span class="btn-hide"></span>
         </div>
+        <div class="menu__content">
+          <input placeholder="поиск" class="search" type="text" />
 
-        <input placeholder="поиск" class="search" type="text" />
-
-        <div class="steps">
-          <button
-            onclick="reloadFile('pdfFiles/file1.pdf')"
-            class="steps__item"
-          >
-            file1
-          </button>
-          <button
-            onclick="reloadFile('pdfFiles/file2.pdf')"
-            class="steps__item"
-          >
-            file2
-          </button>
+          <div class="steps">
+            <div class="chapter">
+              <h2>раздел 1</h2>
+              <button
+                onclick="reloadFile('pdfFiles/file1.pdf')"
+                class="chapter__item"
+              >
+                file1
+              </button>
+              <button
+                onclick="reloadFile('pdfFiles/file2.pdf')"
+                class="chapter__item"
+              >
+                file2
+              </button>
+            </div>
+            <div class="chapter">
+              <h2>раздел 1</h2>
+              <button
+                onclick="reloadFile('pdfFiles/file1.pdf')"
+                class="chapter__item"
+              >
+                file1
+              </button>
+              <button
+                onclick="reloadFile('pdfFiles/file2.pdf')"
+                class="chapter__item"
+              >
+                file2
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="content">
         <div class="file">
-          <iframe src="pdfFiles/pdf_test.pdf" frameborder="0"
+          <!-- <iframe src="pdfFiles/pdf_test.pdf" frameborder="0"
             >Ваш браузер не поддерживает фреймы</iframe
-          >
+          > -->
+          <iframe
+            src="https://drive.google.com/file/d/1pPlPGTKz4wbX2_47UjHERnBbXnzI5GC4/preview"
+          ></iframe>
         </div>
       </div>
     </div>
