@@ -4,10 +4,10 @@ $(document).ready(() => {
     search(e);
   });
 
+  mobileAdap();
+
   $(window).resize(() => {
-    if (window.innerWidth < 1200) {
-      mobileAdap();
-    }
+    mobileAdap;
   });
 
   drowElMenu(data);
@@ -15,10 +15,12 @@ $(document).ready(() => {
 });
 
 let mobileAdap = () => {
-  $(".btn-hide__wrapper").removeClass("btn-hide__close");
-  $(".menu").addClass("menu-hide");
   if (window.innerWidth < 1200) {
-    $(".content-menu-close").addClass("menu-close__hidden");
+    $(".btn-hide__wrapper").removeClass("btn-hide__close");
+    $(".menu").addClass("menu-hide");
+    if (window.innerWidth < 1200) {
+      $(".content-menu-close").addClass("menu-close__hidden");
+    }
   }
 };
 
