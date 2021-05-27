@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Информатика</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <div class="menu menu-hide">
+        <div class="btn-hide__wrapper ">
+          <span class="btn-hide"></span>
+        </div>
+
+        <input placeholder="поиск" class="search" type="text" />
+
+        <div class="steps">
+          <button
+            onclick="reloadFile('pdfFiles/file1.pdf')"
+            class="steps__item"
+          >
+            file1
+          </button>
+          <button
+            onclick="reloadFile('pdfFiles/file2.pdf')"
+            class="steps__item"
+          >
+            file2
+          </button>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="file">
+          <iframe src="pdfFiles/pdf_test.pdf" frameborder="0"
+            >Ваш браузер не поддерживает фреймы</iframe
+          >
+        </div>
+      </div>
+    </div>
+    <script src="js/libs/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
