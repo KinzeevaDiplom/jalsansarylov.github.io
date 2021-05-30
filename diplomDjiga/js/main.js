@@ -6,7 +6,7 @@ $(document).ready(() => {
 
   mobileAdap();
 
-  $(window).resize(mobileAdap);
+  // $(window).resize(mobileAdap);
 
   drowElMenu(data);
   $("#step0").addClass("active");
