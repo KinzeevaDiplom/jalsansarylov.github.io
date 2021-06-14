@@ -12,7 +12,7 @@ function createWindow() {
     height: 1000,
     minWidth: 1200,
     minHeight: 600,
-    // autoHideMenuBar: isDev ? false : true,
+    autoHideMenuBar: isDev ? false : true,
     backgroundColor: '#333333',
     // darkTheme: true,
     webPreferences: {
