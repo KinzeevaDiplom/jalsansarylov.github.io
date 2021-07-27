@@ -1,0 +1,19 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+.wrapper-app {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.clicker {
+  display: flex;
+  justify-content: center;
+  font-size: 17px;
+}
+
+.clicker button {
+  margin: 0 1rem;
+  min-width: 2rem;
+}
